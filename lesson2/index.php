@@ -133,38 +133,30 @@ echo "<p>" . $pow . "</p>";
 //Task 7
 echo "<h4>Task 7:</h4>";
 
-function currentTime($dateHours, $dateMinutes)
+function currentTime ($d, $arr)
 {
-    $hours = array('час ', 'часа ', 'часов '); //массив со склонениями часов
-    $minutes = array(' минута', ' минуты', ' минут'); //массив со склонениями минут
-    $result = $dateHours . ' '; //формируем начало строки
-    //условия при склонении часов
-    if ($dateHours > 4 && $dateHours < 21) {
-        $result .= $hours[2];
-    } elseif ($dateHours === 1 || $dateHours === 21) {
-        $result .= $hours[0];
-    } else {
-        $result .= $hours[1];
-    }
-    $result .= $dateMinutes . ''; //продолжение строки
-    //условие при склонении минут
-    switch (($dateMinutes >= 20) ? $dateMinutes % 10 : $dateMinutes) {
+    $result = $d . ' '; // формируем начало строки
+    //условие склонения
+    switch (($d >= 20) ? $d % 10 : $d) {
         case 1:
-            $result .= $minutes[0];
+            $result .= $arr[0];
             break;
         case 2:
-            $result .= $minutes[1];
+            $result .= $arr[1];
             break;
         case 3:
-            $result .= $minutes[1];
+            $result .= $arr[1];
             break;
         case 4:
-            $result .= $minutes[1];
+            $result .= $arr[1];
             break;
         default:
-            $result .= $minutes[2];
+            $result .= $arr[2];
     }
-    return $result; //возвращаем готовую строку
+    return $result;//Возвращаем результат
 }
 
-echo "<p>" . currentTime(date('H'), date('i')) . "</p>"; //рендерим в DOM
+$hours = ['час ', 'часа ', 'часов ']; //массив со склонениями часов
+$minutes = [' минута', ' минуты', ' минут']; //массив со склонениями минут
+
+echo "<p>" . currentTime(date('H'), $hours) . currentTime(date('i'), $minutes) . "</p>"; //рендерим в DOM
