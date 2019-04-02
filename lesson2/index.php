@@ -80,6 +80,10 @@ function mult($x, $y)
 
 function division($x, $y)
 {
+    if ($y == 0){
+        echo "На 0 делить нельзя";
+        return;
+    }
     return $z = $x / $y;
 }
 
