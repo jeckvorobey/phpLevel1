@@ -67,6 +67,8 @@ $alphabet = [
     'Ф' => 'F', 'Х' => 'H', 'Ц' => 'C', 'Ч' => 'Ch', 'Ш' => 'Sh', 'Щ' => 'Shch',
     'Ь' => '', 'Ы' => 'Y', 'Ъ' => '', 'Э' => 'E', 'Ю' => 'Yu', 'Я' => 'Ya',
 ];
+
+//функция правильной кодировки при преобразованиии строки в массив
 function str_split_unicode($str, $length = 1) {
     $tmp = preg_split('~~u', $str, -1, PREG_SPLIT_NO_EMPTY);
     if ($length > 1) {
@@ -79,20 +81,18 @@ function str_split_unicode($str, $length = 1) {
     return $tmp;
 }
 
+//Функция транслитерации
 function transliteration($str, $alphabet)
 {
-    $arr = str_split_unicode($str);
+    $strArr = str_split_unicode($str); //Преобразуем строку в массив
 //    print_r($arr);
-    foreach ($arr as $value) {
-        foreach ($alphabet as $key => $item) {
-            if ($value === $key) {
-                $arr1[$value] = $item;
-                print_r($arr1) ;
-            }
-        }
+    $str = ''; //инициализируем пустую строку
+    foreach($strArr as $val) {
+        $str .= (isset($alphabet[$val])) ? $alphabet[$val] : $val; //Перебираем массив полученной строки и если значение совпадает с ключем массива алфавита, то присваиваем значение алфавита, иначе возвращаем значение массива строки
     }
+    return $str;
 }
 
-$str = "Выполнил третье задание";
+$str = "PHP мой самый любимый язык программирования";
 //var_dump($str);
-//echo transliteration($str, $alphabet);
+echo transliteration($str, $alphabet);
