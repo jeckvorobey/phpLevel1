@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="03bfa169-531c-4980-a476-bf2c8f0caae6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson2/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/lesson2/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +25,7 @@
         <entry file="file://$PROJECT_DIR$/lesson2/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="335">
-              <caret line="83" column="34" lean-forward="true" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
+              <caret line="83" column="34" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -65,7 +64,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -91,11 +89,11 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
@@ -131,7 +129,8 @@
       <workItem from="1554034568645" duration="11948000" />
       <workItem from="1554132714644" duration="5547000" />
       <workItem from="1554138524145" duration="1830000" />
-      <workItem from="1554224238156" duration="820000" />
+      <workItem from="1554224238156" duration="868000" />
+      <workItem from="1554303008333" duration="599000" />
     </task>
     <task id="LOCAL-00001" summary="Выгрузка ДЗ задания">
       <created>1554138617627</created>
@@ -147,17 +146,24 @@
       <option name="project" value="LOCAL" />
       <updated>1554144589686</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Добавил в фенкцию деления проверку на 0">
+      <created>1554232389414</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1554232389414</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25236000" />
+    <option name="totallyTimeSpent" value="25883000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1296" height="1010" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26618123" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27022654" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -185,7 +191,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Выгрузка ДЗ задания" />
     <MESSAGE value="Максимально сократил код функции убрав лишние условия" />
-    <option name="LAST_COMMIT_MESSAGE" value="Максимально сократил код функции убрав лишние условия" />
+    <MESSAGE value="Добавил в фенкцию деления проверку на 0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил в фенкцию деления проверку на 0" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/lesson1/minimalistica/css/main.css" />
@@ -221,7 +228,7 @@
     <entry file="file://$PROJECT_DIR$/lesson2/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
-          <caret line="83" column="34" lean-forward="true" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
+          <caret line="83" column="34" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
         </state>
       </provider>
     </entry>
