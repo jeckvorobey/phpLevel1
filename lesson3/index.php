@@ -38,14 +38,14 @@ echo number();
 echo "<h4> Task 3 </h4>";
 
 $regions = [
-    'Московская область' => ['Клин,', 'Зеленоград,', 'Солнечногорск'],
-    'Смоленская область' => ['Гагарин,', 'Вязьма, ', 'Рославль'],
-    'Тверская область' => ['Ржев,', 'Торжок,', 'Кимры']
+    'Московская область' => ['Клин', 'Зеленоград', 'Солнечногорск'],
+    'Смоленская область' => ['Гагарин', 'Вязьма', 'Рославль'],
+    'Тверская область' => ['Ржев', 'Торжок', 'Кимры']
 ];
 foreach ($regions as $region => $sity) {
     $res .= "<p>" . $region . ": ";
     foreach ($sity as $item) {
-        $res .= $item . " ";
+        $res .= $item . ", ";
     }
     $res .= "</p>";
 }
@@ -69,12 +69,13 @@ $alphabet = [
 ];
 
 //функция правильной кодировки при преобразованиии строки в массив
-function str_split_unicode($str, $length = 1) {
+function str_split_unicode($str, $length = 1)
+{
     $tmp = preg_split('~~u', $str, -1, PREG_SPLIT_NO_EMPTY);
     if ($length > 1) {
         $chunks = array_chunk($tmp, $length);
         foreach ($chunks as $i => $chunk) {
-            $chunks[$i] = join('', (array) $chunk);
+            $chunks[$i] = join('', (array)$chunk);
         }
         $tmp = $chunks;
     }
@@ -87,7 +88,7 @@ function transliteration($str, $alphabet)
     $strArr = str_split_unicode($str); //Преобразуем строку в массив
 //    print_r($arr);
     $str = ''; //инициализируем пустую строку
-    foreach($strArr as $val) {
+    foreach ($strArr as $val) {
         $str .= (isset($alphabet[$val])) ? $alphabet[$val] : $val; //Перебираем массив полученной строки и если значение совпадает с ключем массива алфавита, то присваиваем значение алфавита, иначе возвращаем значение массива строки
     }
     return $str;
@@ -102,7 +103,7 @@ echo "<h4> Task 5 </h4>";
 
 $specifiedStr = "Функция, которая заменяет в строке пробелы на подчеркивания и возвращает видоизмененную строчку.";
 $modifiedStr = str_replace(" ", "_", $specifiedStr);
-echo "<p>" .$modifiedStr ."</p>";
+echo "<p>" . $modifiedStr . "</p>";
 
 //Задание 6
 echo "<h4> Task 6 </h4>";
@@ -116,9 +117,26 @@ $menuRender = "<ul id=\"menu\">";
 foreach ($menu as $menuItem => $subItem) {
     $menuRender .= "<li><a href=\"#\">" . $menuItem . "</a><ul class=\"sub-menu\">";
     foreach ($subItem as $value) {
-        $menuRender .= "<li><a href=\"#\">" .$value ."</a></li>";
+        $menuRender .= "<li><a href=\"#\">" . $value . "</a></li>";
     }
     $menuRender .= "</ul></li>";
 }
 $menuRender .= "</ul>";
 echo $menuRender;
+
+//Задание 7*
+echo "<h4> Task 7* </h4>";
+
+for ($n = 0; $n < 10; print $n++) {
+}
+
+//Задание 8*
+echo "<h4> Task 8* </h4>";
+
+foreach ($regions as $region => $sity) {
+    foreach ($sity as $val) {
+        if (mb_substr($val, 0, 1) == "К") {
+            echo "<p>" . $val . "</p>";
+        }
+    }
+}
