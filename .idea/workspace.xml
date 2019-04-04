@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a779e60-543e-4861-a280-a284f5fd0bed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lesson3/task6/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson3/task6/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lesson3/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/lesson3/index.php" afterDir="false" />
     </list>
@@ -15,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lesson3/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="708">
-              <caret line="123" column="17" selection-start-line="123" selection-start-column="17" selection-end-line="123" selection-end-column="17" />
+            <state relative-caret-position="492">
+              <caret line="127" column="91" selection-start-line="127" selection-start-column="91" selection-end-line="127" selection-end-column="91" />
             </state>
           </provider>
         </entry>
@@ -27,13 +25,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lesson3/tasks.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="20" column="108" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="108" />
+            <state relative-caret-position="666">
+              <caret line="29" column="156" selection-start-line="29" selection-start-column="156" selection-end-line="29" selection-end-column="250" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lesson3/task6/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1584">
@@ -62,8 +60,8 @@
         <option value="$PROJECT_DIR$/lesson1/tasks.txt" />
         <option value="$PROJECT_DIR$/lesson1/minimalistica/index.php" />
         <option value="$PROJECT_DIR$/lesson3/task6/index.php" />
-        <option value="$PROJECT_DIR$/lesson3/index.php" />
         <option value="$PROJECT_DIR$/lesson3/task6/css/main.css" />
+        <option value="$PROJECT_DIR$/lesson3/index.php" />
       </list>
     </option>
   </component>
@@ -192,7 +190,7 @@
       <updated>1554309744306</updated>
       <workItem from="1554309745553" duration="718000" />
       <workItem from="1554313931504" duration="6769000" />
-      <workItem from="1554385159890" duration="6650000" />
+      <workItem from="1554385159890" duration="11503000" />
     </task>
     <task id="LOCAL-00001" summary="Выполнил 1е задание">
       <created>1554310389794</created>
@@ -222,11 +220,25 @@
       <option name="project" value="LOCAL" />
       <updated>1554321037314</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Выполнил 5 и 6 задание">
+      <created>1554395510150</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1554395510151</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Выполнил 7 и 8 задание">
+      <created>1554403974489</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1554403974489</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18767000" />
+    <option name="totallyTimeSpent" value="23620000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1296" height="1010" extended-state="6" />
@@ -272,7 +284,9 @@
     <MESSAGE value="Выполнил задание 3" />
     <MESSAGE value="Написал черновик 4 задания" />
     <MESSAGE value="Выполнил 4 задание" />
-    <option name="LAST_COMMIT_MESSAGE" value="Выполнил 4 задание" />
+    <MESSAGE value="Выполнил 5 и 6 задание" />
+    <MESSAGE value="Выполнил 7 и 8 задание" />
+    <option name="LAST_COMMIT_MESSAGE" value="Выполнил 7 и 8 задание" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/lesson1/minimalistica/css/main.css" />
@@ -298,13 +312,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lesson3/tasks.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="20" column="108" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lesson3/task6/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -312,17 +319,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lesson3/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="708">
-          <caret line="123" column="17" selection-start-line="123" selection-start-column="17" selection-end-line="123" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lesson3/task6/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1584">
           <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lesson3/tasks.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="666">
+          <caret line="29" column="156" selection-start-line="29" selection-start-column="156" selection-end-line="29" selection-end-column="250" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lesson3/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="127" column="91" selection-start-line="127" selection-start-column="91" selection-end-line="127" selection-end-column="91" />
         </state>
       </provider>
     </entry>

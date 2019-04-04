@@ -13,7 +13,7 @@ while ($i <= 100) {
 echo "<p>" . $result . "</p>";
 
 //задание 2
-echo "<h4> Task 2 </h4>";
+echo "<hr><h4> Task 2 </h4>";
 
 function number()
 {
@@ -35,7 +35,7 @@ function number()
 echo number();
 
 //Задание 3
-echo "<h4> Task 3 </h4>";
+echo "<hr><h4> Task 3 </h4>";
 
 $regions = [
     'Московская область' => ['Клин', 'Зеленоград', 'Солнечногорск'],
@@ -52,7 +52,7 @@ foreach ($regions as $region => $sity) {
 echo $res;
 
 //Задание 4
-echo "<h4> Task 4 </h4>";
+echo "<hr><h4> Task 4 </h4>";
 
 $alphabet = [
     'а' => 'a', 'б' => 'b', 'в' => 'v', 'г' => 'g', 'д' => 'd', 'е' => 'e',
@@ -96,22 +96,24 @@ function transliteration($str, $alphabet)
 
 $str = "PHP мой самый любимый язык программирования";
 //var_dump($str);
+echo "<strong>Исходный текст:</strong> $str<br><br>";
 echo transliteration($str, $alphabet);
 
 //Задание 5
-echo "<h4> Task 5 </h4>";
+echo "<hr><h4> Task 5 </h4>";
 
-$specifiedStr = "Функция, которая заменяет в строке пробелы на подчеркивания и возвращает видоизмененную строчку.";
+$specifiedStr = "Заменяем в строке пробелы на подчеркивания и возвращает видоизмененную строчку.";
 $modifiedStr = str_replace(" ", "_", $specifiedStr);
-echo "<p>" . $modifiedStr . "</p>";
+echo "<p> <strong>Исходный текст:</strong> $specifiedStr </p>";
+echo "<p> $modifiedStr </p>";
 
 //Задание 6
-echo "<h4> Task 6 </h4>";
+echo "<hr><h4> Task 6 </h4>";
 //решение задания 6 находиться по адресу lesson3/task6/index.php
 $menu = [
-    'home' => ['submenu', 'submenu1', 'submenu2'],
-    'archive' => ['submenu', 'submenu1', 'submenu2'],
-    'contact' => ['submenu', 'submenu1', 'submenu2']
+    'home' => ['submenu', 'submenu 1', 'submenu 2'],
+    'archive' => ['submenu', 'submenu 1', 'submenu 2'],
+    'contact' => ['submenu', 'submenu 1', 'submenu 2']
 ];
 $menuRender = "<ul id=\"menu\">";
 foreach ($menu as $menuItem => $subItem) {
@@ -123,15 +125,16 @@ foreach ($menu as $menuItem => $subItem) {
 }
 $menuRender .= "</ul>";
 echo $menuRender;
+echo "<a href='task6/index.php'>Посмотреть решение в шаблоне сайта(подменю появляется при наведении)</a>";
 
 //Задание 7*
-echo "<h4> Task 7* </h4>";
+echo "<hr><h4> Task 7* </h4>";
 
 for ($n = 0; $n < 10; print $n++) {
 }
 
 //Задание 8*
-echo "<h4> Task 8* </h4>";
+echo "<hr><h4> Task 8* </h4>";
 
 foreach ($regions as $region => $sity) {
     foreach ($sity as $val) {
@@ -140,3 +143,22 @@ foreach ($regions as $region => $sity) {
         }
     }
 }
+
+//Задание 9*
+echo "<hr><h4> Task 9* </h4>";
+
+function url($str, $alphabet)
+{
+    $strArr = str_split_unicode($str); //Преобразуем строку в массив
+//    print_r($arr);
+    $str = ''; //инициализируем пустую строку
+    foreach ($strArr as $val) {
+        $str .= (isset($alphabet[$val])) ? $alphabet[$val] : $val; //Перебираем массив полученной строки и если значение совпадает с ключем массива алфавита, то присваиваем значение алфавита, иначе возвращаем значение массива строки
+    }
+    $url = str_replace(" ", "_", $str);
+    return $url;
+}
+
+$strUrl = 'аналогичная задача решается при конструировании url-адресов на основе названия статьи в блогах';
+echo "<p> <strong>Исходный текст:</strong> $strUrl </p>";
+echo "<p>" . url($strUrl, $alphabet) . "</p>";
