@@ -40,7 +40,7 @@ echo "<h4> Task 3 </h4>";
 $regions = [
     'Московская область' => ['Клин,', 'Зеленоград,', 'Солнечногорск'],
     'Смоленская область' => ['Гагарин,', 'Вязьма, ', 'Рославль'],
-    'Тверская область' => ['Ржев,', 'Торжок,', 'Вышний Волочек']
+    'Тверская область' => ['Ржев,', 'Торжок,', 'Кимры']
 ];
 foreach ($regions as $region => $sity) {
     $res .= "<p>" . $region . ": ";
@@ -96,3 +96,29 @@ function transliteration($str, $alphabet)
 $str = "PHP мой самый любимый язык программирования";
 //var_dump($str);
 echo transliteration($str, $alphabet);
+
+//Задание 5
+echo "<h4> Task 5 </h4>";
+
+$specifiedStr = "Функция, которая заменяет в строке пробелы на подчеркивания и возвращает видоизмененную строчку.";
+$modifiedStr = str_replace(" ", "_", $specifiedStr);
+echo "<p>" .$modifiedStr ."</p>";
+
+//Задание 6
+echo "<h4> Task 6 </h4>";
+//решение задания 6 находиться по адресу lesson3/task6/index.php
+$menu = [
+    'home' => ['submenu', 'submenu1', 'submenu2'],
+    'archive' => ['submenu', 'submenu1', 'submenu2'],
+    'contact' => ['submenu', 'submenu1', 'submenu2']
+];
+$menuRender = "<ul id=\"menu\">";
+foreach ($menu as $menuItem => $subItem) {
+    $menuRender .= "<li><a href=\"#\">" . $menuItem . "</a><ul class=\"sub-menu\">";
+    foreach ($subItem as $value) {
+        $menuRender .= "<li><a href=\"#\">" .$value ."</a></li>";
+    }
+    $menuRender .= "</ul></li>";
+}
+$menuRender .= "</ul>";
+echo $menuRender;
