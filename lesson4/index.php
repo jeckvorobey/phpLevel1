@@ -17,6 +17,11 @@
 </div>
 <div id="overlay"></div><!-- Пoдлoжкa -->
 
+<form action="blocks/addImg.php" method="post" enctype="multipart/form-data">
+    <strong>Добавить фото в галерею:</strong>
+    <input type="file" name="image" accept="image/jpeg, image/png">
+    <input type="submit" value="Сохранить">
+</form>
 
 <script src="script/jquery-3.3.1.min.js"></script>
 <script src="script/main.js"></script>
