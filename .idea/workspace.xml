@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a779e60-543e-4861-a280-a284f5fd0bed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lesson5/blocks/server.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson5/blocks/gallery.php" beforeDir="false" afterPath="$PROJECT_DIR$/lesson5/blocks/gallery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson5/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/lesson5/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson5/script/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/lesson5/script/main.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,20 +30,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lesson5/script/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="35" column="37" lean-forward="true" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+            <state relative-caret-position="575">
+              <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lesson5/blocks/server.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+            <state relative-caret-position="161">
+              <caret line="7" column="69" lean-forward="true" selection-start-line="7" selection-start-column="69" selection-end-line="7" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -82,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lesson5/blocks/gallery.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+            <state relative-caret-position="115">
+              <caret line="4" column="47" lean-forward="true" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -126,10 +122,10 @@
         <option value="$PROJECT_DIR$/lesson5/blocks/addImg.php" />
         <option value="$PROJECT_DIR$/lesson5/blocks/config.php" />
         <option value="$PROJECT_DIR$/lesson5/index.php" />
-        <option value="$PROJECT_DIR$/lesson5/blocks/gallery.php" />
         <option value="$PROJECT_DIR$/lesson5/css/style.css" />
-        <option value="$PROJECT_DIR$/lesson5/script/main.js" />
         <option value="$PROJECT_DIR$/lesson5/blocks/server.php" />
+        <option value="$PROJECT_DIR$/lesson5/blocks/gallery.php" />
+        <option value="$PROJECT_DIR$/lesson5/script/main.js" />
       </list>
     </option>
   </component>
@@ -266,7 +262,7 @@
       <workItem from="1555253976525" duration="7142000" />
       <workItem from="1555267748740" duration="572000" />
       <workItem from="1555268581632" duration="4637000" />
-      <workItem from="1555344680641" duration="10602000" />
+      <workItem from="1555344680641" duration="11447000" />
     </task>
     <task id="LOCAL-00001" summary="Выполнил 1е задание">
       <created>1554310389794</created>
@@ -345,15 +341,28 @@
       <option name="project" value="LOCAL" />
       <updated>1555273401948</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="ДЗ по 5 уроку оконченое">
+      <created>1555355414675</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1555355414675</updated>
+    </task>
+    <task id="LOCAL-00013" summary="добавил коментарий">
+      <created>1555355732581</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1555355732581</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78032000" />
+    <option name="totallyTimeSpent" value="78877000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1366" height="738" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27878788" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -401,7 +410,9 @@
     <MESSAGE value="Выполнил базовое задание" />
     <MESSAGE value="Выполнил второе задание, можно добавить изображения с форматом jpg и png они сохранятся в папку images/big и автоматически сохранится копия с уменешеным размером в папку small" />
     <MESSAGE value="ДЗ по 5 уроку" />
-    <option name="LAST_COMMIT_MESSAGE" value="ДЗ по 5 уроку" />
+    <MESSAGE value="ДЗ по 5 уроку оконченое" />
+    <MESSAGE value="добавил коментарий" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил коментарий" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/lesson1/minimalistica/css/main.css" />
@@ -529,13 +540,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lesson5/blocks/gallery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lesson5/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1012">
@@ -550,17 +554,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lesson5/script/main.js">
+    <entry file="file://$PROJECT_DIR$/lesson5/blocks/gallery.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="35" column="37" lean-forward="true" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+        <state relative-caret-position="115">
+          <caret line="4" column="47" lean-forward="true" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lesson5/blocks/server.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        <state relative-caret-position="161">
+          <caret line="7" column="69" lean-forward="true" selection-start-line="7" selection-start-column="69" selection-end-line="7" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lesson5/script/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
         </state>
       </provider>
     </entry>
