@@ -8,6 +8,7 @@ $sqlpass = '123Qw!';
 $sqlbase = 'shopbooks';
 
 $connection = mysqli_connect($sqlserver, $sqluser, $sqlpass, $sqlbase);
+mysqli_set_charset($connection, 'utf8');
 
 if (!$connection) {
     echo 'Ошибка: Невозможно установить соединение с MySQL<br>';
