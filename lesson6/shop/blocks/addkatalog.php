@@ -1,6 +1,5 @@
-﻿<?php
+<?php
 
-header('Content-Type: text/html; charset=utf-8');
 include 'blocks/sqlconnect.php';
 $sql = 'SELECT * FROM `goods`';
 $result = mysqli_query($connection, $sql);
