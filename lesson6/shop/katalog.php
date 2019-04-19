@@ -24,7 +24,9 @@
             Каталог
         </h1>
         <div id="product-catalog">
-            <div class="product">
+            <?=include 'blocks/addkatalog.php'; ?>
+
+          <!--  <div class="product">
                 <h4>
                     Федор Достоевский: Идиот
                 </h4>
@@ -67,7 +69,7 @@
                 <img src="../ShopBooks/img/products/DochPosgiratelniciGrehov.jpg" alt="Дочь Пожирательницы Грехов" title="Мелинда Солсбери: Дочь Пожирательницы Грехов">
                 <p>Цена: 200 руб.</p>
                 <a href="../ShopBooks/products/DochPosgiratelniciGrehov.html">Подробнее...</a>
-            </div>
+            </div> -->
 
         </div>
         <footer>
