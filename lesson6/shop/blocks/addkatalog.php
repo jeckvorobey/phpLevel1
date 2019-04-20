@@ -12,7 +12,7 @@ if (mysqli_num_rows($result) > 0) {
         echo '<h4>'.$head.'</h4>';
         echo '<img src="'.$way.'" alt="'.$row['title'].'" title="'.$head.'">';
         echo '<p> Цена: '.$row['price'].' руб.</p>';
-        echo '<a href="'.$href.'" target="_blank">Подробне...</a>';
+        echo '<a href="'.$href.'">Подробне...</a>';
         echo '</div>';
     }
 }
