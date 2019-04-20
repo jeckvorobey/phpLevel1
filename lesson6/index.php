@@ -13,25 +13,37 @@
 
  if (isset($_GET['num1'])) {
      $num1 = (isset($_GET['num1'])) ? (int) $_GET['num1'] : 0;
- } else $num1 = 1;
+ } else {
+     $num1 = 1;
+ }
 if (isset($_GET['num2'])) {
     $num2 = (isset($_GET['num2'])) ? (int) $_GET['num2'] : 0;
-} else $num2 = 1;
-if(isset($_GET['operation'])) {
+} else {
+    $num2 = 1;
+}
+if (isset($_GET['operation'])) {
     $operation = $_GET['operation'];
-}else $operation = '+'; 
+} else {
+    $operation = '+';
+}
 $res = mathOperation($num1, $num2, $operation);
 
 //калькулятор задание 2
 if (isset($_POST['number1'])) {
     $number1 = (isset($_POST['number1'])) ? (int) $_POST['number1'] : 0;
-} else $number1 = 1;
+} else {
+    $number1 = 1;
+}
 if (isset($_POST['number2'])) {
     $number2 = (isset($_POST['number2'])) ? (int) $_POST['number2'] : 0;
-} else $number2 = 1;
-if(isset($_POST['operation'])){
+} else {
+    $number2 = 1;
+}
+if (isset($_POST['operation'])) {
     $op = $_POST['operation'];
-} else $op = '+';
+} else {
+    $op = '+';
+}
 $result = mathOperation($number1, $number2, $op);
 
 //функция калькуляции
