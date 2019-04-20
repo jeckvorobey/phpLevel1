@@ -1,25 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Книжный магазин</title>
-    <link rel="stylesheet" href="./Style.css">
-</head>
+<?php
+$head = file_get_contents('../templates/head.tpl');
+echo $head;
+?>
 
 <body>
     <div class="container">
-        <header>
-            <div id="logo">
-                <img src="./img/book-logo.jpg" alt="book-logo"> Книжный магазин.
-            </div>
-            <ul class="menu">
-                <li><a href="index.php">Главная</a></li>
-                <li><a href="katalog.php">Каталог</a></li>
-                <li><a href="contact.php">Контакты</a></li>
-            </ul>
-        </header>
-        <hr>
+        <?php
+        $header = file_get_contents('../templates/header.tpl');
+        echo $header;
+        ?>
         <h1>
             Контакты
         </h1>
@@ -53,12 +45,13 @@
             <b>Адрес:</b> г.Смоленск ул.Городок Коминтерна д.2 <br>
             <b>Email:</b> contact@bookshop.ru <br>
         </p>
-        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Af63c54e5a30740b18356fc4c7504eea417cf8050ba1d2388b5a7ed3bfceaa054&amp;width=100%25&amp;height=374&amp;lang=ru_RU&amp;scroll=true"></script>
-        <footer>
-            <p>
-                &copy;"Все права защищены"
-            </p>
-        </footer>
+        <script type="text/javascript" charset="utf-8" async
+            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Af63c54e5a30740b18356fc4c7504eea417cf8050ba1d2388b5a7ed3bfceaa054&amp;width=100%25&amp;height=374&amp;lang=ru_RU&amp;scroll=true">
+        </script>
+        <?php
+        $footer = file_get_contents('../templates/footer.tpl');
+        echo $footer;
+        ?>
     </div>
 </body>
 
