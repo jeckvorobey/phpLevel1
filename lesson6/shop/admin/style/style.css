@@ -18,6 +18,10 @@ h1::first-letter {
     text-transform: uppercase;
 }
 
+.container {
+    display: flex;
+}
+
 table {
     width: 45%;
 }
@@ -35,6 +39,11 @@ table th {
 
 table td {
     padding-left: 10px;
+}
+
+.form-add {
+    display: flex;
+    flex-direction: column;
 }
 
 .form-edit {

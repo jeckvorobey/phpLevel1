@@ -50,6 +50,11 @@ echo $head;
                     <td><b>ISBN:</b></td>
                     <td><?=$good['isbn']; ?></td>
                 </tr>
+                <tr>
+                    <td><img src="../public/img/spisoktovar.jpg" alt="kniga"></td>
+                    <td><b>Стоимость:</b></td>
+                    <td><?=$good['price'].' Руб'; ?></td>
+                </tr>
             </table>
             <div class="produck-opisanie">
                 <h2>Описание:</h2>
