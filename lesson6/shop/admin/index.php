@@ -15,6 +15,7 @@ echo $head;
             <tr>
                 <th></th>
                 <th></th>
+                <th></th>
                 <th>ID</th>
                 <th>Автор</th>
                 <th>Название</th>

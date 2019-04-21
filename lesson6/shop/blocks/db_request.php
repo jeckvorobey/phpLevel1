@@ -18,11 +18,11 @@ function good_edit($connection, $id, $author, $title, $imgName, $description, $a
 {
     $id = (int) $id;
 
-    $sql = "UPDATE `goods` SET ,`author`=$author,`title`=$title,`imgName`=$imgName,`description`=$description,`annotation`=$annotation,`pubHouse`=$pubHouse,`series`=$series,`yearPublishing`=$yearPublishing,`isbn`=$isbn,`price`=$price WHERE `id`=$id";
+    $sql = "UPDATE `goods` SET `author`='%s',`title`='%s',`imgName`='%s',`description`='%s',`annotation`='%s',`pubHouse`='%s',`series`='%s',`yearPublishing`='%d',`isbn`='%s',`price`='%d' WHERE `id`='%d'";
 
-    // $query = sprintf($sql, mysqli_real_escape_string($connection, $author), mysqli_real_escape_string($connection, $title), mysqli_real_escape_string($connection, $imgName), mysqli_real_escape_string($connection, $description), mysqli_real_escape_string($connection, $annotation), mysqli_real_escape_string($connection, $pubHouse), mysqli_real_escape_string($connection, $series), mysqli_real_escape_string($connection, $yearPublishing), mysqli_real_escape_string($connection, $isbn), mysqli_real_escape_string($connection, $price), $id);
+    $query = sprintf($sql, mysqli_real_escape_string($connection, $author), mysqli_real_escape_string($connection, $title), mysqli_real_escape_string($connection, $imgName), mysqli_real_escape_string($connection, $description), mysqli_real_escape_string($connection, $annotation), mysqli_real_escape_string($connection, $pubHouse), mysqli_real_escape_string($connection, $series), mysqli_real_escape_string($connection, $yearPublishing), mysqli_real_escape_string($connection, $isbn), mysqli_real_escape_string($connection, $price), $id);
 
-    $result = mysqli_query($connection, $sql);
+    $result = mysqli_query($connection, $query);
 
     if (!$result) {
         die(mysqli_error($connection));
