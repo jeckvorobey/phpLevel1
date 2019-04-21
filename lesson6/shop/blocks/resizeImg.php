@@ -1,18 +1,6 @@
 <?php
 
-header('Location: http://lesson4/');
-//print_r($_FILES);
-$file = '../images/big/'.$_FILES['image']['name'];
-//print_r($file);
-move_uploaded_file($_FILES['image']['tmp_name'], $file);
-if ($_FILES['image']['type'] == 'image/jpeg') {
-    $img = resize_imagejpg($file, 300, 169);
-    imagejpeg($img, '../images/small/'.$_FILES['image']['name']);
-} else {
-    $img = resize_imagepng($file, 300, 169);
-    imagepng($img, '../images/small/'.$_FILES['image']['name']);
-}
-
+//блок обработки загруженных фото
 //функция для изменения размера jpeg
 function resize_imagejpg($file, $w, $h)
 {
