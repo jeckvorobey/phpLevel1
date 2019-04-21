@@ -1,7 +1,3 @@
-<?php
-include_once '../blocks/db_request.php';
-?>
-
 <!DOCTYPE html>
 <html lang="ru">
 <?php
@@ -13,12 +9,19 @@ echo $head;
     <div class="container">
         <h1>администрирование магазина</h1>
     </div>
-    <h4>список товаров:</h4>
-    <ul class="product-list">
-        <li><span class="captionId">id</span><span class="captionAuthor">автор</span
-                class="captionTitle"><span>название</span></li>
-        <?php include '../admin/productList.php'; ?>
-    </ul>
+    <table class="product-list">
+        <caption>Список товаров:</caption>
+        <tbody>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>ID</th>
+                <th>Автор</th>
+                <th>Название</th>
+            </tr>
+            <?php include '../admin/productList.php'; ?>
+        </tbody>
+    </table>
 </body>
 
 </html>
