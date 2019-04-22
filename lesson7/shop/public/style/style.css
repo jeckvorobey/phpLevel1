@@ -2,7 +2,8 @@ root {
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     box-sizing: border-box;
     background: #fefefe;
     width: 100%;
@@ -169,7 +170,8 @@ h2 {
     text-align: left;
 }
 
-.Anotaciya:first-letter, .MalOpisanie:first-letter {
+.Anotaciya:first-letter,
+.MalOpisanie:first-letter {
     color: blueviolet;
     font-size: 30px;
 }
@@ -182,11 +184,6 @@ caption {
     font-family: fantasy;
 }
 
-
-/* .table-stroka1 {
-    height: 60px;
-} */
-
 table td:nth-child(2) {
     text-align: right;
 }
@@ -195,7 +192,8 @@ table td:nth-child(2) {
     text-align: left;
 }
 
-table tr, table td {
+table tr,
+table td {
     border: 2px solid black;
     text-align: left;
 }
@@ -228,11 +226,13 @@ table tr, table td {
     height: 100px;
 }
 
-textarea, input[type=text] {
+textarea,
+input[type=text] {
     text-transform: capitalize;
 }
 
-#imya, #pass {
+#imya,
+#pass {
     width: 250px;
     height: 20px;
     color: blue;
@@ -245,9 +245,28 @@ textarea, input[type=text] {
     width: 217px;
 }
 
-#contakt-email:focus, #imya:focus {
+#contakt-email:focus,
+#imya:focus {
     background: darkseagreen;
     color: #FFBF40;
+}
+
+.form-auth {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px 0 auto;
+}
+
+.form-auth label {
+    margin: 5px 0;
+}
+
+.form-auth input[type="button"] {
+    margin: 10px 0 0 130px;
+
+    width: 60px;
+    text-align: center;
 }
 
 iframe {

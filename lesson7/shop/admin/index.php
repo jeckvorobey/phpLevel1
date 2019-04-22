@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!$_SESSION['login']) {
+    header('Location: ../public/formAuth.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <?php
