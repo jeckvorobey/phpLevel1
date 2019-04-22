@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!$_SESSION['login']) {
+if (!isset($_SESSION['login'])) {
     header('Location: ../public/formAuth.php');
 }
 if ($_SESSION['role'] != 1) {

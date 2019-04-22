@@ -6,6 +6,6 @@
     <li><a href="index.php">Главная</a></li>
     <li><a href="katalog.php">Каталог</a></li>
     <li><a href="contact.php">Контакты</a></li>
-    <li><a href="formAuth.php">Личный кабинет</a></li>
+    <li><a href="personalArea.php">Личный кабинет</a></li>
 </ul>
 </header>

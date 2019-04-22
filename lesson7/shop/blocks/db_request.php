@@ -66,7 +66,7 @@ function good_del($connection, $id)
 
 function auth($connection, $login, $pass)
 {
-    $sql = "SELECT * FROM users WHERE login='$login'"; // end pass='$pass'"; почему-то не работает оператор end?
+    $sql = "SELECT * FROM users WHERE login='$login'"; // end pass='$pass'"; //почему-то не работает оператор end?
     $result = mysqli_query($connection, $sql);
 
     if (!$result) {
