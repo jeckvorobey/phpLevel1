@@ -10,14 +10,17 @@ echo $head;
          <?php
         $header = file_get_contents('../templates/header.tpl');
         echo $header;
-        ?>
+         if (isset($_GET['error'])) {
+             echo '<p style="color:red">Вы ввели неверно логин или пароль</p>';
+         }
+         ?>
          <h1 style="text-align:right; margin-right:145px;">Вход:</h1>
          <form class="form-auth" action="../blocks/server.php" method="POST">
              <label for="login">Введите ваш логин:</label>
              <input type="text" name="login" value="">
              <label for="pass">Введите ваш пароль:</label>
              <input type="password" name="pass" value="">
-             <input type="button" name="button" value="Вход">
+             <input type="submit" value="Войти">
          </form>
 
          <?php

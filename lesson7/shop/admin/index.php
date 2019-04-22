@@ -3,6 +3,10 @@ session_start();
 if (!$_SESSION['login']) {
     header('Location: ../public/formAuth.php');
 }
+if ($_SESSION['role'] != 1) {
+    header('Location: ../public/personalArea.php?noadmin');
+}
+
 ?>
 
 <!DOCTYPE html>

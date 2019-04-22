@@ -262,7 +262,7 @@ input[type=text] {
     margin: 5px 0;
 }
 
-.form-auth input[type="button"] {
+.form-auth input[type="submit"] {
     margin: 10px 0 0 130px;
 
     width: 60px;
