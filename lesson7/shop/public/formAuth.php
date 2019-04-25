@@ -65,9 +65,14 @@ include '../templates/head.php';
                              <label for="email">Email</label>
                              <input type="email" class="form-control" name="email" placeholder="Укажите Ваш Email">
                          </div>
+                         <?php
+                         if (isset($_GET['errorEmail'])) {
+                             echo '<p style="color:red">Формат email дожен быть exemple@domain.com</p>';
+                         }
+                         ?>
                          <div class="col-12">
                              <label for="phone">Телефон</label>
-                             <input type="phone" class="form-control" name="phone"
+                             <input type="phone" id="phoneReg" class="form-control" name="phone"
                                  placeholder="Укажите Ваш Номер Телефона">
                          </div>
                      </div>

@@ -1,7 +1,7 @@
 <?php
 
 include_once '../blocks/db_request.php';
-
+//вход в ЛК
 if (isset($_POST['entry'])) {
     $login = (!empty($_POST['login'])) ? trim(strip_tags($_POST['login'])) : '';
     $pass = (!empty($_POST['pass'])) ? trim(strip_tags($_POST['pass'])) : '';
@@ -23,7 +23,7 @@ if (isset($_POST['entry'])) {
     // print_r($_SESSION);
     header('Location: ../public/personalArea.php');
 }
-
+//регистрация
 if (isset($_POST['registration'])) {
     $login = (!empty($_POST['login'])) ? trim(strip_tags($_POST['login'])) : '';
     $pass = (!empty($_POST['pass'])) ? trim(strip_tags($_POST['pass'])) : '';
@@ -32,6 +32,11 @@ if (isset($_POST['registration'])) {
     $name = (!empty($_POST['name'])) ? trim(strip_tags($_POST['name'])) : '';
     $middleName = (!empty($_POST['middleName'])) ? trim(strip_tags($_POST['middleName'])) : '';
     $email = (!empty($_POST['email'])) ? trim(strip_tags($_POST['email'])) : '';
+    $patern = '/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/i';
+    if (!preg_match($patern, $email)) {
+        header('Location: ../public/formAuth.php?errorEmail');
+        exit;
+    }
     $phone = (!empty($_POST['phone'])) ? trim(strip_tags($_POST['phone'])) : '';
     $newUser = newUser($connection, $login, $pass, $surname, $name, $middleName, $phone, $email);
     if (!$newUser) {
@@ -49,7 +54,7 @@ if (isset($_POST['registration'])) {
     $_SESSION['phone'] = $user['phone'];
     header('Location: ../public/formAuth.php?success');
 }
-
+//Выход из ЛК
 if (isset($_GET['action']) == 'logout') {
     unset($_SESSION['login']);
     unset($_SESSION['pass']);
