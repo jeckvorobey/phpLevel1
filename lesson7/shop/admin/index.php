@@ -4,19 +4,14 @@ if (!isset($_SESSION['login'])) {
     header('Location: ../public/formAuth.php');
 }
 if ($_SESSION['role'] != 1) {
-    header('Location: ../public/personalArea.php?noadmin');
+    echo 'Вы не являетесь администратором';
+    exit;
 }
-
-?>
-
-<!DOCTYPE html>
-<html lang="ru">
-<?php
-$head = file_get_contents('../admin/tpl/head.tpl');
-echo $head;
+include '../templates/head.php';
 ?>
 
 <body>
+    <?php include '../templates/header.php'; ?>
     <h1>администрирование магазина</h1>
     <div class="container">
         <table class="product-list">
@@ -59,6 +54,7 @@ echo $head;
             </form>
         </div>
     </div>
+    <?php include '../templates/footer.php'; ?>
 </body>
 
 </html>

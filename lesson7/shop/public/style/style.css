@@ -2,8 +2,7 @@ root {
     box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
     box-sizing: border-box;
     background: #fefefe;
     width: 100%;
@@ -18,6 +17,7 @@ body {
 }
 
 header {
+    width: 100%;
     background-color: #f89223;
     height: 100px;
 }
@@ -170,8 +170,7 @@ h2 {
     text-align: left;
 }
 
-.Anotaciya:first-letter,
-.MalOpisanie:first-letter {
+.Anotaciya:first-letter, .MalOpisanie:first-letter {
     color: blueviolet;
     font-size: 30px;
 }
@@ -192,8 +191,7 @@ table td:nth-child(2) {
     text-align: left;
 }
 
-table tr,
-table td {
+table tr, table td {
     border: 2px solid black;
     text-align: left;
 }
@@ -226,13 +224,11 @@ table td {
     height: 100px;
 }
 
-textarea,
-input[type=text] {
+textarea, input[type=text] {
     text-transform: capitalize;
 }
 
-#imya,
-#pass {
+#imya, #pass {
     width: 250px;
     height: 20px;
     color: blue;
@@ -245,8 +241,7 @@ input[type=text] {
     width: 217px;
 }
 
-#contakt-email:focus,
-#imya:focus {
+#contakt-email:focus, #imya:focus {
     background: darkseagreen;
     color: #FFBF40;
 }
@@ -264,7 +259,6 @@ input[type=text] {
 
 .form-auth input[type="submit"] {
     margin: 10px 0 0 130px;
-
     width: 60px;
     text-align: center;
 }
@@ -276,6 +270,7 @@ iframe {
 }
 
 footer {
+    width: 100%;
     height: 60px;
     background: #f89223;
     display: flex;

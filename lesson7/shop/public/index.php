@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="ru">
-
 <?php
-$head = file_get_contents('../templates/head.tpl');
-echo $head;
+session_start();
+include '../templates/head.php';
 ?>
 
 <body>
     <div class="container">
         <?php
-        $header = file_get_contents('../templates/header.tpl');
-        echo $header;
+        include '../templates/header.php';
         ?>
         <h1>
             Главная
@@ -26,8 +22,7 @@ echo $head;
             в&nbsp;сроки и&nbsp;в&nbsp;целостности. Также можно оформить книги под заказ и&nbsp;в&nbsp;аудиоформате.
         </p>
         <?php
-        $footer = file_get_contents('../templates/footer.tpl');
-        echo $footer;
+       include '../templates/footer.php';
         ?>
     </div>
 </body>

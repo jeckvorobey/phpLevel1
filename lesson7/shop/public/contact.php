@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="ru">
-
 <?php
-$head = file_get_contents('../templates/head.tpl');
-echo $head;
+session_start();
+include '../templates/head.php';
 ?>
 
 <body>
     <div class="container">
         <?php
-        $header = file_get_contents('../templates/header.tpl');
-        echo $header;
+        include '../templates/header.php';
         ?>
         <h1>
             Контакты
@@ -49,8 +45,7 @@ echo $head;
             src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Af63c54e5a30740b18356fc4c7504eea417cf8050ba1d2388b5a7ed3bfceaa054&amp;width=100%25&amp;height=374&amp;lang=ru_RU&amp;scroll=true">
         </script>
         <?php
-        $footer = file_get_contents('../templates/footer.tpl');
-        echo $footer;
+        include '../templates/footer.php';
         ?>
     </div>
 </body>

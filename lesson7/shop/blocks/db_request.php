@@ -13,7 +13,7 @@ function goods_get($connection, $id)
 
     return $good;
 }
-
+//редактируем товар
 function good_edit($connection, $id, $author, $title, $imgName, $description, $annotation, $pubHouse, $series, $yearPublishing, $isbn, $price)
 {
     $id = (int) $id;
@@ -30,7 +30,7 @@ function good_edit($connection, $id, $author, $title, $imgName, $description, $a
 
     return mysqli_affected_rows($connection);
 }
-
+//добавление товара
 function Good_add($connection, $author, $title, $imgName, $description, $annotation, $pubHouse, $series, $yearPublishing, $isbn, $price)
 {
     $sql = "INSERT INTO `goods`(`author`, `title`, `imgName`, `description`, `annotation`, `pubHouse`, `series`, `yearPublishing`, `isbn`, `price`) VALUES ('%s', '%s', '%s','%s', '%s', '%s', '%s', '%d', '%s', '%d')";
@@ -45,7 +45,7 @@ function Good_add($connection, $author, $title, $imgName, $description, $annotat
 
     return true;
 }
-
+//удаление товара
 function good_del($connection, $id)
 {
     $id = (int) $id;
@@ -63,10 +63,11 @@ function good_del($connection, $id)
 
     return mysqli_affected_rows($connection);
 }
-
+//авторизация пользователя(получаем пользователя из базы)
 function auth($connection, $login, $pass)
 {
-    $sql = "SELECT * FROM users WHERE login='$login'"; // end pass='$pass'"; //почему-то не работает оператор end?
+    $sql = "SELECT * FROM users WHERE login='$login' and pass='$pass'";
+
     $result = mysqli_query($connection, $sql);
 
     if (!$result) {
@@ -75,4 +76,25 @@ function auth($connection, $login, $pass)
     $user = mysqli_fetch_assoc($result);
 
     return $user;
+}
+//Добавление нового пользователя
+function newUser($connection, $login, $pass, $surname, $name, $middleName, $phone, $email)
+{
+    $sql = "INSERT INTO `users`(`login`, `pass`, `surname`, `name`, `middleName`, `phone`, `email`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')";
+    $query = sprintf($sql, mysqli_real_escape_string($connection, $login), mysqli_real_escape_string($connection, $pass), mysqli_real_escape_string($connection, $surname), mysqli_real_escape_string($connection, $name), mysqli_real_escape_string($connection, $middleName), mysqli_real_escape_string($connection, $phone), mysqli_real_escape_string($connection, $email));
+    $result = mysqli_query($connection, $query);
+    if (!$result) {
+        return false;
+        exit;
+    }
+
+    return true;
+}
+//шифрование пароля
+function hashPass($pass)
+{
+    $salt = 'jhfdkjdhfTyhdh3365@jdh69kkshhQAAAiyeg'; //соль для паролей
+    $pass .= $salt;
+    $result = hash('sha256', $pass); //шифруем в кодировке sha256
+    return $result;
 }
