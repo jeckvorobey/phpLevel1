@@ -4,7 +4,7 @@
 
 $sqlserver = 'localhost';
 $sqluser = 'root';
-$sqlpass = '123Qw!';
+$sqlpass = '123Qw!654';
 $sqlbase = 'shopbooks';
 
 $connection = mysqli_connect($sqlserver, $sqluser, $sqlpass, $sqlbase);
