@@ -57,7 +57,7 @@ include '../templates/head.php';
                     <p class="MalOpisanie">
                         <?=$good['description']; ?>
                     </p>
-                    <a href="#" class="buy">Купить</a>
+                    <button type="button" class="add-to-cart btn btn-warning" value="<?=$good['id']; ?>">В корзину</button>
                 </div>
             </div>
             <h2>

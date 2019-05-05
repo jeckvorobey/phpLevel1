@@ -13,6 +13,7 @@ if (mysqli_num_rows($result) > 0) {
         echo '<img src="'.$way.'" alt="'.$row['title'].'" title="'.$head.'">';
         echo '<p> Цена: '.$row['price'].' руб.</p>';
         echo '<a href="'.$href.'">Подробне...</a>';
+        echo '<button type="button" class="add-to-cart btn btn-warning btn-sm" value="'.$row['id'].'" >В корзину</button>';
         echo '</div>';
     }
 }
