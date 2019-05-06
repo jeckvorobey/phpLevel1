@@ -4,6 +4,8 @@ $(document).ready(() => {
     $('.add-to-cart').click(e => {
         addCart(e.target.value);
     });
+
+    
 });
 
 //добавляем товар в корзину
@@ -17,7 +19,7 @@ addCart = (id) => {
             alert(`Ошибка: ${text} | ${error}`);
         },
         success: data => {
-            console.log(data);
+            // console.log(data);
         }
     });
 }

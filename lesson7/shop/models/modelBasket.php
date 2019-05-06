@@ -1,14 +1,14 @@
-<?php 
+<?php
 
 require_once '../blocks/sqlconnect.php';
 //получаем строку с товаром из корзины (если такая есть)
-function get_basket_row ($connection, $userId, $goodId) 
+function get_basket_row($connection, $userId, $goodId)
 {
-    $idGood = (int)$goodId;
+    $idGood = (int) $goodId;
     $sql = "SELECT * FROM `basket` WHERE `id_good`='%d' and `id_user`='%s'";
     $query = sprintf($sql, $idGood, mysqli_escape_string($connection, $userId));
     $result = mysqli_query($connection, $query);
-    
+
     if (!$result) {
         die(mysqli_error($connection));
     }
@@ -18,12 +18,11 @@ function get_basket_row ($connection, $userId, $goodId)
     return $good;
 }
 //обновляем количество в корзине
-function up_date_count ($connection, $userId, $goodId, $count) 
+function update_count($connection, $userId, $goodId)
 {
-    $idGood = (int)$goodId;
-    $counter = (int)$count;
-    $sql = "UPDATE `basket` SET `count`='%d' WHERE `id_good`='%d' and `id_user`='%s'";
-    $query = sprintf($sql, $counter, $idGood, mysqli_escape_string($connection, $userId));
+    $idGood = (int) $goodId;
+    $sql = "UPDATE `basket` SET `count`=count+1 WHERE `id_good`='%d' and `id_user`='%s'";
+    $query = sprintf($sql, $idGood, mysqli_escape_string($connection, $userId));
     $result = mysqli_query($connection, $query);
 
     if (!$result) {
@@ -33,9 +32,9 @@ function up_date_count ($connection, $userId, $goodId, $count)
     return mysqli_affected_rows($connection);
 }
 //добавляем товар в корзину
-function add_basket ($connection, $userId, $goodId)
+function add_basket($connection, $userId, $goodId)
 {
-    $idGood = (int)$goodId;
+    $idGood = (int) $goodId;
     $sql = "INSERT INTO `basket`(`id_good`, `count`, `id_user`) VALUES ('%d', 1, '%s')";
     $query = sprintf($sql, $idGood, mysqli_escape_string($connection, $userId));
     $result = mysqli_query($connection, $query);

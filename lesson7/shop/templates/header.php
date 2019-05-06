@@ -3,7 +3,6 @@
          <img src="../public/img/book-logo.jpg" alt="book-logo"> Книжный магазин.
      </div>
      <ul class="menu">
-        <li><a href="../public/basket.php">корзина</a></li>
         <li><a href="../public/index.php">Главная</a></li>
         <li><a href="../public/katalog.php">Каталог</a></li>
         <li><a href="../public/contact.php">Контакты</a></li>
@@ -19,4 +18,7 @@
             }
         ?>
      </ul>
+     <div class="basket">
+     <p>Товаров в корзине: <span class="count-goods">нет</span></p>
+     </div>
  </header>
