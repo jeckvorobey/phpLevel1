@@ -3,10 +3,11 @@
          <img src="../public/img/book-logo.jpg" alt="book-logo"> Книжный магазин.
      </div>
      <ul class="menu">
-         <li><a href="../public/index.php">Главная</a></li>
-         <li><a href="../public/katalog.php">Каталог</a></li>
-         <li><a href="../public/contact.php">Контакты</a></li>
-         <?php
+        <li><a href="../public/basket.php">корзина</a></li>
+        <li><a href="../public/index.php">Главная</a></li>
+        <li><a href="../public/katalog.php">Каталог</a></li>
+        <li><a href="../public/contact.php">Контакты</a></li>
+        <?php
             if (isset($_SESSION['login']) && isset($_SESSION['pass'])) {
                 echo '<li><a href="../public/personalArea.php">Личный кабинет</a></li>';
                 if ($_SESSION['role'] == 1) {
