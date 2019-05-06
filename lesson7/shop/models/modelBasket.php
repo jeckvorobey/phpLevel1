@@ -45,3 +45,21 @@ function add_basket($connection, $userId, $goodId)
 
     return true;
 }
+
+function basket_all($connection, $userId)
+{
+    $sql = "SELECT * FROM `basket` WHERE `id_user`='%s'";
+    $query = sprintf($sql, mysqli_escape_string($connection, $userId));
+    $result = mysqli_query($connection, $query);
+
+    if (!$result) {
+        die(mysqli_error($connection));
+    }
+    if(mysqli_num_rows($result) > 0){
+        for($i = 0, $lengs = $re)
+    }
+
+    $basket = mysqli_fetch_assoc($result);
+
+    return $basket;
+}

@@ -20,6 +20,7 @@ include '../templates/head.php';
         ?>
         </div>
     </div>
+    
 </body>
 
 </html>
