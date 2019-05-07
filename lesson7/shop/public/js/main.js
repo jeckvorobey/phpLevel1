@@ -6,7 +6,7 @@ $(document).ready(() => {
 
     $('.add-to-cart').click(e => {
         addCart(e.target.value);
-        cart.init();
+        location.reload();
     });
 
     //модальное окно
@@ -69,8 +69,7 @@ unit = (id, action) => {
             alert(`Ошибка: ${text} | ${error}`);
         },
         success: data => {
-            cart.init();
+            location.reload();
         }
     });
-    cart.init();
 }

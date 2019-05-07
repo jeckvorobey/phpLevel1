@@ -52,9 +52,9 @@ class Cart {
         });
         $product.append($(`<p class="product-author">${product.author}</p>`));
         $product.append($(`<p class="product-title">${product.title}</p>`));
-        $product.append($(`<p class="product-count">${product.count}</p>`));
-        $product.append($(`<p class="product-price">${product.price}</p>`));
-        $product.append($(`<p class="product-amount">${product.amount}</p>`));
+        $product.append($(`<p class="product-count">${product.count} шт.</p>`));
+        $product.append($(`<p class="product-price">цена: ${product.price} руб.</p>`));
+        $product.append($(`<p class="product-amount">Сумма: ${product.amount} руб.</p>`));
         $product.append($(`<button type="button" class="action-unit" onclick="unit(${product.id}, 'del')" ><img src="../public/img/icon/garbage.png" alt="garbage.png" title="удалить"></button>`))
         $product.appendTo($('.cart-items-wrap'));
         // console.log('TCL: Cart -> _renderProduct -> containerProduct', $containerProduct)
@@ -62,7 +62,7 @@ class Cart {
     }
     //Выводим итоговую сумму
     _renderSum() {
-        $('.sum-count').text(`Всего товаров в корзине: ${this.countGoods}`);
+        $('.sum-count').text(`Всего товаров в корзине: ${this.countGoods} шт.`);
         $('.sum-price').text(`Сумма товаров в корзине: ${this.amount} руб.`);
     }
     _renderEmpty() {
