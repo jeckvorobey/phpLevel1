@@ -6,6 +6,7 @@ class Cart {
         this.cartItems = [] //массив товаров
         this.init(); //инициализация корзины
     }
+
     _render() {
         let $cartItemsDiv = $('<div/>', {
             class: 'cart-items-wrap'
@@ -16,12 +17,13 @@ class Cart {
         let $totalPrice = $('<div/>', {
             class: 'cart-summary sum-price'
         }); //общая стоимость корзины
-        $(this.container).text('Корзина');
+        $(this.container).append(`<h4>Корзина</h4>`)
         $cartItemsDiv.appendTo($(this.container));
         $totalCount.appendTo($(this.container));
         $totalPrice.appendTo($(this.container));
         // console.log('TCL: Cart -> _render -> container', this.container);
     }
+
     init() {
         this._render();
         $.post('../controllers/basket.php', 'renderBasket', data => {
@@ -50,11 +52,15 @@ class Cart {
         });
         $product.append($(`<p class="product-author">${product.author}</p>`));
         $product.append($(`<p class="product-title">${product.title}</p>`));
-        $product.append($(`<p class="product-count">${product.count} шт.</p>`));
-        $product.append($(`<p class="product-price">${product.price} руб.</p>`));
-        $product.append($(`<p class="product-amount">${product.amount} руб.</p>`));
+        $product.append($(`<button type="button" class="action-unit" onclick="unit(${product.id}, 'rem')" ><img src="../public/img/icon/pacman.png" alt="pacman.png" title="уменьшить"></button>`))
+        $product.append($(`<p class="product-count">${product.count}</p>`));
+        $product.append($(`<button type="button" class="action-unit" onclick="unit(${product.id}, 'add')" ><img src="../public/img/icon/plus.png" alt="plus.png" title="увеличить"></button>`))
+        $product.append($(`<p class="product-price">${product.price}</p>`));
+        $product.append($(`<p class="product-amount">${product.amount}</p>`));
+        $product.append($(`<button type="button" class="action-unit" onclick="unit(${product.id}, 'del')" ><img src="../public/img/icon/garbage.png" alt="garbage.png" title="удалить"></button>`))
         $product.appendTo($('.cart-items-wrap'));
         // console.log('TCL: Cart -> _renderProduct -> containerProduct', $containerProduct)
+        //
     }
     //Выводим итоговую сумму
     _renderSum() {
@@ -62,7 +68,7 @@ class Cart {
         $('.sum-price').text(`Сумма товаров в корзине: ${this.amount} руб.`);
     }
     _renderEmpty() {
-        $(this.container).text('В корзине нет товаров');
+        $(this.container).append(`<h4>В корзине нет товаров</h4>`)
     }
     _renderCount() {
         $('#go').text(`${this.countGoods}`);

@@ -349,5 +349,27 @@
     }
     
     .cart-item {
-        display: flex
+        display: flex;
+        align-items: center;
+    }
+    
+    .cart-item p {
+        margin: 0;
+        font-size: 18px;
+    }
+    
+    .action-unit {
+        padding: 0;
+        border: none;
+        border-radius: 50%;
+        height: 16px;
+        width: 16px;
+        background-color: white;
+    }
+    
+    .action-unit img {
+        vertical-align: unset;
+        border-style: none;
+        height: 16px;
+        width: 16px;
     }

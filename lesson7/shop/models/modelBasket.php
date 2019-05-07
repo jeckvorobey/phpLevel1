@@ -62,3 +62,16 @@ function basket_all($connection, $userId)
 
     return $basket;
 }
+
+function del_row_basket($connection, $idGood, $userId)
+{
+    $sql = "DELETE FROM `basket` WHERE `id_good`='%d' and `id_user`='%s'";
+    $query = sprintf($sql, $idGood, mysqli_escape_string($connection, $userId));
+    $result = mysqli_query($connection, $query);
+
+    if (!$result) {
+        die(mysqli_error($connection));
+    }
+
+    return mysqli_affected_rows($connection);
+}

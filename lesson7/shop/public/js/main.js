@@ -1,6 +1,7 @@
 $(document).ready(() => {
     $('#phoneReg').mask('+7(999)999-99-99');
 
+
     let cart = new Cart('#cart');
 
     $('.add-to-cart').click(e => {
@@ -52,4 +53,24 @@ addCart = (id) => {
             // alert('Товар добавлен в корзину')
         }
     });
+
+
+}
+
+unit = (id, action) => {
+    $.ajax({
+        type: 'POST',
+        url: '../controllers/basket.php',
+        data: {
+            idGood: id,
+            action: action
+        },
+        error: (text, error) => {
+            alert(`Ошибка: ${text} | ${error}`);
+        },
+        success: data => {
+            cart.init();
+        }
+    });
+    cart.init();
 }

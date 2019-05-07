@@ -37,3 +37,12 @@ if (isset($_POST['id'])) {
         echo $data = true;
     }
 }
+
+if (isset($_POST['idGood']) && isset($_POST['action'])) {
+    $idGood = (int) $_POST['idGood'];
+    $action = $_POST['action'];
+    switch ($action) {
+        case 'del':
+        $del = del_row_basket($connection, $idGood, $userId);
+    }
+}
