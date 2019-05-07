@@ -4,7 +4,7 @@ class Cart {
         this.countGoods = 0; //общее количество товаров в корзине
         this.amount = 0; //общее стоимость товаров
         this.cartItems = [] //массив товаров
-        this._init(); //инициализация корзины
+        this.init(); //инициализация корзины
     }
     _render() {
         let $cartItemsDiv = $('<div/>', {
@@ -22,113 +22,49 @@ class Cart {
         $totalPrice.appendTo($(this.container));
         // console.log('TCL: Cart -> _render -> container', this.container);
     }
-    _init() {
-        // this._render();
-        // $.post('../controllers/basket.php', 'renderBasket', data => {
-        //         console.log(data);
-        //     },
-        //     "json"
-        // );
-        // fetch(this.source)
-        //     .then(result => result.json())
-        //     .then(data => {
-        //         for (let product of data.contents) {
-        //             this.cartItems.push(product); //Добавляем товар из масива полученного файла в наш массив
-        //             this._renderProduct(product); //показываем товар пользователю на странице
-        //             // console.log('TCL: Cart -> _init -> product', product)
-        //         }
-        //         this.amount = data.amount;
-        //         this.countGoods = data.countGoods;
-        //         this._renderSum(); //отображаем итоговые данные
-        //     })
+    init() {
+        this._render();
+        $.post('../controllers/basket.php', 'renderBasket', data => {
+                if (data === 0) {
+                    this._renderEmpty()
+                } else {
+                    for (let product of data.contents) {
+                        this.cartItems.push(product);
+                        this._renderProduct(product);
+                    }
+                    this.amount = data.amount;
+                    this.countGoods = data.totalCount;
+                    this._renderSum();
+                    this._renderCount()
+                }
+            },
+            "json"
+        );
 
     }
     //рендер нового товара на странице
-    // _renderProduct(product) {
-    //     let $product = $('<div/>', {
-    //         class: 'cart-item',
-    //         'data-product': product.id_product //присваиваем индитификатор через data атрибут
-    //     });
-    //     let $removeBtn = $('<img/>', {
-    //         'class': 'removeIcon',
-    //         'alt': 'del',
-    //         'src': './images/icon/garbage.svg',
-    //         'title': 'Удалить',
-    //         'data-id': product.id_product,
-    //     });
-    //     $product.append($(`<p class="product-name">${product.product_name}</p>`));
-    //     $product.append($(`<p class="product-quantity">${product.quantity}</p>`));
-    //     $product.append($(`<p class="product-price">${product.price} руб.</p>`));
-    //     $product.append($(`<input type="text" class="countRemove" data-id="${product.id_product}" value="1">`));
-    //     $product.append($removeBtn);
-    //     $removeBtn.click(e => {
-    //         this.removeProduct(e.target);
-    //     });
-    //     $product.appendTo($('.cart-items-wrap'));
-    //     // console.log('TCL: Cart -> _renderProduct -> containerProduct', $containerProduct)
-    // }
+    _renderProduct(product) {
+        let $product = $('<div/>', {
+            class: 'cart-item',
+            'data-product': product.id //присваиваем индитификатор через data атрибут
+        });
+        $product.append($(`<p class="product-author">${product.author}</p>`));
+        $product.append($(`<p class="product-title">${product.title}</p>`));
+        $product.append($(`<p class="product-count">${product.count} шт.</p>`));
+        $product.append($(`<p class="product-price">${product.price} руб.</p>`));
+        $product.append($(`<p class="product-amount">${product.amount} руб.</p>`));
+        $product.appendTo($('.cart-items-wrap'));
+        // console.log('TCL: Cart -> _renderProduct -> containerProduct', $containerProduct)
+    }
     //Выводим итоговую сумму
-    // _renderSum() {
-    //     $('.sum-count').text(`Всего товаров в корзине: ${this.countGoods}`);
-    //     $('.sum-price').text(`Сумма товаров в корзине: ${this.amount}`);
-    // }
-
-    // _updateCart(product) {
-    //     let $container = $(`div[data-product="${product.id_product}"]`);
-    //     $container.find('.product-quantity').text(product.quantity);
-    //     $container.find('.product-price').text(`${product.quantity*product.price} руб.`);
-    // }
-
-    // addProduct(element) {
-    //     let productId = +$(element).data('id');
-    //     let find = this.cartItems.find(product => product.id_product === productId);
-    //     if (find) {
-    //         find.quantity++;
-    //         this.countGoods++;
-    //         this.amount += find.price;
-    //         this._updateCart(find);
-    //     } else {
-    //         let product = {
-    //             id_product: productId,
-    //             price: +$(element).data('price'),
-    //             product_name: $(element).data('title'),
-    //             quantity: 1
-    //         }
-
-    //         this.cartItems.push(product);
-    //         this.amount += product.price;
-    //         this.countGoods += product.quantity;
-    //         this._renderProduct(product);
-    //     }
-    //     this._renderSum();
-    // }
-
-    //удаляем товар из корзины
-    // removeProduct(element) {
-    //     let productId = +$(element).data('id');
-    //     let countRemove = +$(`.countRemove[data-id="${productId}"]`).val();
-    //     // console.log(countRemove);
-    //     let find = this.cartItems.find(product => product.id_product === productId);
-    //     if (countRemove === 0 || countRemove > find.quantity) {
-    //         $(`.countRemove[data-id="${productId}"]`).addClass('removeError');
-    //     } else if (countRemove < find.quantity) {
-    //         $(`.countRemove[data-id="${productId}"]`).removeClass('removeError');
-    //         find.quantity -= countRemove;
-    //         this.countGoods -= countRemove;
-    //         this.amount -= find.price * countRemove;
-    //         this._updateCart(find);
-    //     } else {
-    //         $(`.countRemove[data-id="${productId}"]`).removeClass('removeError');
-    //         $(`div[data-product="${productId}"]`).remove();
-    //         this.countGoods -= countRemove;
-    //         this.amount -= find.price * countRemove;
-    //         //Удаляем из массива продукт
-    //         this.cartItems.splice(this.cartItems.indexOf(find), 1);
-    //         // console.log(this.cartItems);
-
-    //     }
-    //     this._updateCart(find);
-
-    //     this._renderSum();
-    // }
+    _renderSum() {
+        $('.sum-count').text(`Всего товаров в корзине: ${this.countGoods}`);
+        $('.sum-price').text(`Сумма товаров в корзине: ${this.amount} руб.`);
+    }
+    _renderEmpty() {
+        $(this.container).text('В корзине нет товаров');
+    }
+    _renderCount() {
+        $('#go').text(`${this.countGoods}`);
+    }
 }

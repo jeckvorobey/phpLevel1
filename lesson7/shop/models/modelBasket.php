@@ -48,7 +48,7 @@ function add_basket($connection, $userId, $goodId)
 
 function basket_all($connection, $userId)
 {
-    $sql = "SELECT * FROM `basket` WHERE `id_user`='%s'";
+    $sql = "SELECT goods.id, `author`, `title`, `price`, basket.count, goods.price*basket.count AS amount FROM `goods` INNER JOIN `basket` ON goods.id = basket.id_good WHERE basket.id_user = '%s'";
     $query = sprintf($sql, mysqli_escape_string($connection, $userId));
     $result = mysqli_query($connection, $query);
 
@@ -61,18 +61,4 @@ function basket_all($connection, $userId)
     }
 
     return $basket;
-}
-//получаем данные о товаре для рендера корзины
-function good_get($connection, $id, $count)
-{
-    $sql = 'SELECT `author`, `title`, `price` FROM `goods` WHERE `id`=%d';
-    $query = sprintf($sql, (int) $id);
-    $result = mysqli_query($connection, $query);
-    if (!$result) {
-        die(mysqli_error($connection));
-    }
-    $good = mysqli_fetch_assoc($result);
-    $good['count'] = $count;
-
-    return $good;
 }

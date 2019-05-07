@@ -14,14 +14,14 @@ if (isset($_SESSION['login']) && isset($_SESSION['pass'])) {
 if (isset($_POST['renderBasket'])) {
     $basket = basket_all($connection, $userId);
     if (!$basket) {
-        echo $data = json_encode('Товаров в корзине нет');
+        echo $data = 0;
     } else {
-        $allGoods = [];
-        foreach ($basket as $key => $val) {
-        }
-        // $allGoods[] = good_get($connection, $idG, $count);
-        // }
-        echo $data = json_encode($allGoods);
+        $totalCount = array_sum(array_column($basket, 'count'));
+        $amount = array_sum(array_column($basket, 'amount'));
+        $result['totalCount'] = $totalCount;
+        $result['amount'] = $amount;
+        $result['contents'] = $basket;
+        echo $data = json_encode($result);
     }
 }
 
@@ -31,10 +31,9 @@ if (isset($_POST['id'])) {
     $goodRow = get_basket_row($connection, $userId, $goodId); //строка из карзины с id user и id good и количество в корзине
     if (!$goodRow) {
         $addGood = add_basket($connection, $userId, $goodId); //если товара в корзине нет добавляем
-        // echo $data = json_encode('успешно добавлен');
+        echo $data = true;
     } else {
         $upCount = update_count($connection, $userId, $goodId); //увеличиваем количество на 1
-        // echo $data = json_encode($count);
+        echo $data = true;
     }
-    // echo $data = json_encode($userId);
 }

@@ -1,16 +1,12 @@
 $(document).ready(() => {
     $('#phoneReg').mask('+7(999)999-99-99');
 
+    let cart = new Cart('#cart');
+
     $('.add-to-cart').click(e => {
         addCart(e.target.value);
+        cart.init();
     });
-
-    $('#test').click(() => {
-        // alert('test');
-        test();
-    });
-
-    let cart = new Cart('#cart');
 
     //модальное окно
     $('a#go').click(function (event) { // лoвим клик пo ссылки с id="go"
@@ -53,22 +49,7 @@ addCart = (id) => {
             alert(`Ошибка: ${text} | ${error}`);
         },
         success: data => {
-            // console.log(data);
+            // alert('Товар добавлен в корзину')
         }
     });
-}
-
-test = () => {
-    $.ajax({
-        type: 'POST',
-        url: '../controllers/basket.php',
-        data: 'renderBasket',
-        dataType: 'json',
-        error: (text, error) => {
-            alert(`Ошибка: ${text} | ${error}`);
-        },
-        success: data => {
-            console.log(data);
-        }
-    })
 }
