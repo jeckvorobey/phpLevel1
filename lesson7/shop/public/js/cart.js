@@ -52,9 +52,7 @@ class Cart {
         });
         $product.append($(`<p class="product-author">${product.author}</p>`));
         $product.append($(`<p class="product-title">${product.title}</p>`));
-        $product.append($(`<button type="button" class="action-unit" onclick="unit(${product.id}, 'rem')" ><img src="../public/img/icon/pacman.png" alt="pacman.png" title="уменьшить"></button>`))
         $product.append($(`<p class="product-count">${product.count}</p>`));
-        $product.append($(`<button type="button" class="action-unit" onclick="unit(${product.id}, 'add')" ><img src="../public/img/icon/plus.png" alt="plus.png" title="увеличить"></button>`))
         $product.append($(`<p class="product-price">${product.price}</p>`));
         $product.append($(`<p class="product-amount">${product.amount}</p>`));
         $product.append($(`<button type="button" class="action-unit" onclick="unit(${product.id}, 'del')" ><img src="../public/img/icon/garbage.png" alt="garbage.png" title="удалить"></button>`))
