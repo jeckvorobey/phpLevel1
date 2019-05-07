@@ -5,6 +5,11 @@ $(document).ready(() => {
         addCart(e.target.value);
     });
 
+    $('#test').click(() => {
+        // alert('test');
+        test();
+    });
+
     let cart = new Cart('#cart');
 
     //модальное окно
@@ -51,4 +56,19 @@ addCart = (id) => {
             // console.log(data);
         }
     });
+}
+
+test = () => {
+    $.ajax({
+        type: 'POST',
+        url: '../controllers/basket.php',
+        data: 'renderBasket',
+        dataType: 'json',
+        error: (text, error) => {
+            alert(`Ошибка: ${text} | ${error}`);
+        },
+        success: data => {
+            console.log(data);
+        }
+    })
 }

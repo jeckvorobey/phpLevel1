@@ -55,11 +55,24 @@ function basket_all($connection, $userId)
     if (!$result) {
         die(mysqli_error($connection));
     }
-    if(mysqli_num_rows($result) > 0){
-        for($i = 0, $lengs = $re)
+    $basket = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $basket[] = $row;
     }
 
-    $basket = mysqli_fetch_assoc($result);
-
     return $basket;
+}
+//получаем данные о товаре для рендера корзины
+function good_get($connection, $id, $count)
+{
+    $sql = 'SELECT `author`, `title`, `price` FROM `goods` WHERE `id`=%d';
+    $query = sprintf($sql, (int) $id);
+    $result = mysqli_query($connection, $query);
+    if (!$result) {
+        die(mysqli_error($connection));
+    }
+    $good = mysqli_fetch_assoc($result);
+    $good['count'] = $count;
+
+    return $good;
 }

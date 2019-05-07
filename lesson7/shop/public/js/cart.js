@@ -23,12 +23,12 @@ class Cart {
         // console.log('TCL: Cart -> _render -> container', this.container);
     }
     _init() {
-        this._render();
-        $.post('../controllers/basket.php', 'renderBasket', data => {
-
-            },
-            "json"
-        );
+        // this._render();
+        // $.post('../controllers/basket.php', 'renderBasket', data => {
+        //         console.log(data);
+        //     },
+        //     "json"
+        // );
         // fetch(this.source)
         //     .then(result => result.json())
         //     .then(data => {

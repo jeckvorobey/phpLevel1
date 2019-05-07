@@ -12,10 +12,16 @@ if (isset($_SESSION['login']) && isset($_SESSION['pass'])) {
 }
 
 if (isset($_POST['renderBasket'])) {
-    $basketAll = basket_all($connection, $userId);
-    if (!$basketAll) {
+    $basket = basket_all($connection, $userId);
+    if (!$basket) {
         echo $data = json_encode('Товаров в корзине нет');
     } else {
+        $allGoods = [];
+        foreach ($basket as $key => $val) {
+        }
+        // $allGoods[] = good_get($connection, $idG, $count);
+        // }
+        echo $data = json_encode($allGoods);
     }
 }
 
