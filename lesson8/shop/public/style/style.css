@@ -1,0 +1,383 @@
+    root {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        box-sizing: border-box;
+        background: #fefefe;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    header {
+        width: 100%;
+        background-color: #f89223;
+        height: 100px;
+        position: relative;
+    }
+
+    #logo img {
+        width: 80px;
+        height: 80px;
+    }
+
+    header #logo {
+        display: flex;
+        align-items: center;
+        float: left;
+        position: relative;
+        left: 30px;
+        height: 100px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    header .menu {
+        list-style-type: none;
+        font: 18px Arial, Verdana;
+        font-family: serif;
+        font-style: italic;
+        padding-right: 25px;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        margin: 0;
+        padding-top: 20px;
+    }
+
+    .menu li {
+        display: block;
+        margin-left: 15px;
+    }
+
+    .menu li a:hover {
+        color: darkgreen;
+    }
+
+    .basket {
+        width: fit-content;
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        padding: 15px 15px 0 0;
+    }
+
+    #product-catalog {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .product {
+        display: flex;
+        width: 300px;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .product h4 {
+        font-family: cursive;
+        font-size: 16px;
+        margin: 0;
+        text-align: center;
+    }
+
+    .product img {
+        display: block;
+        width: auto;
+        height: 250px;
+        margin: 10px 0;
+    }
+
+    .product a {
+        display: block;
+        margin-bottom: 25px;
+    }
+
+    .product a:hover {
+        background: #6F9C00;
+    }
+
+    .product p {
+        margin: 5px 0;
+    }
+
+    .product-block {
+        display: flex;
+        height: 350px;
+        width: auto;
+        margin-bottom: 50px;
+    }
+
+    product-pic {
+        display: flex;
+        float: left;
+        margin-bottom: 50px;
+    }
+
+    .produck-opisanie {
+        display: block;
+        width: 100%;
+        margin-left: 40px;
+    }
+
+    .buy {
+        display: flex;
+        width: 80px;
+        height: 40px;
+        background: #f89223;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+        margin-left: 85%;
+    }
+
+    .buy:hover {
+        background: #A68900;
+    }
+
+    .buy:active {
+        background: #679B00;
+    }
+
+    .MalOpisanie {
+        color: #707070;
+        font-size: 14px;
+        font-style: italic;
+        line-height: 16px;
+    }
+
+    h2 {
+        color: black;
+        font-size: 18px;
+        font-family: sans-serif;
+        font-weight: 400;
+        background: #eaeaea;
+    }
+
+    .Anotaciya {
+        color: #484343;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+    }
+
+    .Anotaciya:first-letter,
+    .MalOpisanie:first-letter {
+        color: blueviolet;
+        font-size: 30px;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    caption {
+        font-family: fantasy;
+    }
+
+    table td:nth-child(2) {
+        text-align: right;
+    }
+
+    #table-pravka {
+        text-align: left;
+    }
+
+    table tr,
+    table td {
+        border: 2px solid black;
+        text-align: left;
+    }
+
+    #primer {
+        text-align: center
+    }
+
+    .product-info tr {
+        color: dimgrey;
+        font-size: 14px;
+        font-family: cursive;
+    }
+
+    .pic {
+        display: block;
+    }
+
+    #forma input {
+        width: 250px;
+        height: 20px;
+        color: blue;
+        font-family: serif;
+        font-style: italic;
+        font-size: 18px;
+    }
+
+    #forma textarea {
+        width: 250px;
+        height: 100px;
+    }
+
+    textarea,
+    input[type=text] {
+        text-transform: capitalize;
+    }
+
+    #imya,
+    #pass {
+        width: 250px;
+        height: 20px;
+        color: blue;
+        font-family: serif;
+        font-style: italic;
+        font-size: 18px;
+    }
+
+    #pass {
+        width: 217px;
+    }
+
+    #contakt-email:focus,
+    #imya:focus {
+        background: darkseagreen;
+        color: #FFBF40;
+    }
+
+    .form-auth {
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 20px 0 auto;
+    }
+
+    .form-auth label {
+        margin: 5px 0;
+    }
+
+    .form-auth input[type="submit"] {
+        margin: 10px 0 0 130px;
+        width: 60px;
+        text-align: center;
+    }
+
+    iframe {
+        width: 100%;
+        height: 374;
+        border: 0;
+    }
+
+    footer {
+        width: 100%;
+        height: 60px;
+        background: #f89223;
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 5px;
+        padding-right: 10px;
+        margin-top: 25px;
+    }
+
+    #modal_form {
+        width: fit-content;
+        height: fit-content;
+        /* Рaзмеры дoлжны быть фиксирoвaны */
+        border-radius: 5px;
+        border: 3px #000 solid;
+        background: #fff;
+        position: fixed;
+        /* чтoбы oкнo былo в видимoй зoне в любoм месте */
+        top: 45%;
+        /* oтступaем сверху 45%, oстaльные 5% пoдвинет скрипт */
+        left: 50%;
+        /* пoлoвинa экрaнa слевa */
+        margin-top: -150px;
+        margin-left: -150px;
+        /* тут вся мaгия центрoвки css, oтступaем влевo и вверх минус пoлoвину ширины и высoты сooтветственнo =) */
+        display: none;
+        /* в oбычнoм сoстoянии oкнa не дoлжнo быть */
+        opacity: 0;
+        /* пoлнoстью прoзрaчнo для aнимирoвaния */
+        z-index: 5;
+        /* oкнo дoлжнo быть нaибoлее бoльшем слoе */
+        padding: 20px 10px;
+    }
+
+    /* Кнoпкa зaкрыть для тех ктo в тaнке) */
+
+    #modal_form #modal_close {
+        width: 21px;
+        height: 21px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        display: block;
+    }
+
+    /* Пoдлoжкa */
+
+    #overlay {
+        z-index: 3;
+        /* пoдлoжкa дoлжнa быть выше слoев элементoв сaйтa, нo ниже слoя мoдaльнoгo oкнa */
+        position: fixed;
+        /* всегдa перекрывaет весь сaйт */
+        background-color: #000;
+        /* чернaя */
+        opacity: 0.8;
+        /* нo немнoгo прoзрaчнa */
+        -moz-opacity: 0.8;
+        /* фикс прозрачности для старых браузеров */
+        filter: alpha(opacity=80);
+        width: 100%;
+        height: 100%;
+        /* рaзмерoм вo весь экрaн */
+        top: 0;
+        /* сверху и слевa 0, oбязaтельные свoйствa! */
+        left: 0;
+        cursor: pointer;
+        display: none;
+        /* в oбычнoм сoстoянии её нет) */
+    }
+
+    .cart-item {
+        display: flex;
+        align-items: center;
+    }
+
+    .cart-item p {
+        margin: 0 10px 0 0;
+        font-size: 18px;
+    }
+
+    .action-unit {
+        padding: 0;
+        border: none;
+        border-radius: 50%;
+        height: 16px;
+        width: 16px;
+        background-color: white;
+    }
+
+    .action-unit img {
+        vertical-align: top;
+        border-style: none;
+        height: 16px;
+        width: 16px;
+    }
