@@ -4,6 +4,7 @@ class Cart {
         this.countGoods = 0; //общее количество товаров в корзине
         this.amount = 0; //общее стоимость товаров
         this.cartItems = [] //массив товаров
+        this.authorized = Boolean; //проверка на авторизацию
         this.init(); //инициализация корзины
     }
 
@@ -17,10 +18,14 @@ class Cart {
         let $totalPrice = $('<div/>', {
             class: 'cart-summary sum-price'
         }); //общая стоимость корзины
+        let $btnOrder = $('<div/>', {
+            class: 'btn-order'
+        });
         $(this.container).append(`<h4>Корзина</h4>`)
         $cartItemsDiv.appendTo($(this.container));
         $totalCount.appendTo($(this.container));
         $totalPrice.appendTo($(this.container));
+        $btnOrder.appendTo($(this.container));
         // console.log('TCL: Cart -> _render -> container', this.container);
     }
 
@@ -34,10 +39,12 @@ class Cart {
                         this.cartItems.push(product);
                         this._renderProduct(product);
                     }
+                    this.authorized = data.authorized;
                     this.amount = data.amount;
                     this.countGoods = data.totalCount;
                     this._renderSum();
-                    this._renderCount()
+                    this._renderCount();
+                    this._renderBtn();
                 }
             },
             "json"
@@ -57,8 +64,8 @@ class Cart {
         $product.append($(`<p class="product-amount">Сумма: ${product.amount} руб.</p>`));
         $product.append($(`<button type="button" class="action-unit" onclick="unit(${product.id}, 'del')" ><img src="../public/img/icon/garbage.png" alt="garbage.png" title="удалить"></button>`))
         $product.appendTo($('.cart-items-wrap'));
-        // console.log('TCL: Cart -> _renderProduct -> containerProduct', $containerProduct)
-        //
+
+
     }
     //Выводим итоговую сумму
     _renderSum() {
@@ -70,5 +77,13 @@ class Cart {
     }
     _renderCount() {
         $('#go').text(`${this.countGoods}`);
+    }
+    _renderBtn() {
+        let btn = this.authorized;
+        if (btn) {
+            $('.btn-order').html(`<button type = "button" class = "btn btn-success btn-lg" onclick="byOrder()"> Оформить заказ </button>`);
+        } else {
+            $('.btn-order').html(`<button type = "button" class = "btn btn-secondary btn-lg" onclick="auth()"> для оформления авторизуйтесь. </button>`);
+        }
     }
 }

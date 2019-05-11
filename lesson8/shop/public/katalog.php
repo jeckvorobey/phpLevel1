@@ -1,5 +1,9 @@
 <?php
 session_start();
+?>
+<!DOCTYPE html>
+<html lang="RU">
+<?php
 include '../templates/head.php';
 ?>
 
@@ -20,7 +24,7 @@ include '../templates/head.php';
         ?>
         </div>
     </div>
-    
+
 </body>
 
 </html>

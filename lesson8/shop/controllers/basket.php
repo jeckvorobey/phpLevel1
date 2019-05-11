@@ -7,8 +7,10 @@ include_once '../blocks/db_request.php';
 //получаем id user если авторизован и id его ссессии если не авторизован
 if (isset($_SESSION['login']) && isset($_SESSION['pass'])) {
     $userId = $_SESSION['id'];
+    $authorized = true;
 } else {
     $userId = session_id();
+    $authorized = false;
 }
 
 if (isset($_POST['renderBasket'])) {
@@ -18,6 +20,7 @@ if (isset($_POST['renderBasket'])) {
     } else {
         $totalCount = array_sum(array_column($basket, 'count'));
         $amount = array_sum(array_column($basket, 'amount'));
+        $result['authorized'] = $authorized;
         $result['totalCount'] = $totalCount;
         $result['amount'] = $amount;
         $result['contents'] = $basket;

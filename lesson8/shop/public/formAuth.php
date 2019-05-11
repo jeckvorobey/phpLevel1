@@ -1,6 +1,10 @@
  <?php
  session_start();
 include_once '../blocks/login.php';
+?>
+ <!DOCTYPE html>
+ <html lang="RU">
+ <?php
 include '../templates/head.php';
 ?>
 
@@ -84,3 +88,5 @@ include '../templates/head.php';
             include '../templates/footer.php';
         ?>
  </body>
+
+ </html>

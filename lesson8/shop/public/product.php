@@ -7,8 +7,10 @@ if (isset($_GET['id'])) {
 include_once '../blocks/db_request.php'; //импортируем файл с функциями
 $good = goods_get($connection, $id); //запрашиваем функцию получения товара из БД
 // print_r($good);
-include '../templates/head.php';
 ?>
+<!doctype html>
+<html lang="ru">
+<?php include '../templates/head.php'; ?>
 
 <body>
     <div class="container">
@@ -57,7 +59,8 @@ include '../templates/head.php';
                     <p class="MalOpisanie">
                         <?=$good['description']; ?>
                     </p>
-                    <button type="button" class="add-to-cart btn btn-warning" value="<?=$good['id']; ?>">В корзину</button>
+                    <button type="button" class="add-to-cart btn btn-warning" value="<?=$good['id']; ?>">В
+                        корзину</button>
                 </div>
             </div>
             <h2>
