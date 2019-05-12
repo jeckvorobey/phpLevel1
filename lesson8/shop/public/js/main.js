@@ -9,6 +9,13 @@ $(document).ready(() => {
         location.reload();
     });
 
+    //обработчик выбора способо доставки
+    $('#delivery').change(e => {
+        e.preventDefault();
+        console.log(e.target.value);
+        renderFormDelivery(e.target.value);
+    });
+
     //модальное окно
     $('a#go').click(function (event) { // лoвим клик пo ссылки с id="go"
         event.preventDefault(); // выключaем стaндaртную рoль элементa
@@ -78,4 +85,32 @@ auth = () => {
 
 byOrder = () => {
     location = '../public/order.php';
+}
+
+renderFormDelivery = id => {
+    switch (+(id)) {
+        case 1:
+            $('.form-delivery').remove();
+            break;
+        case 2:
+            $('.form-delivery').remove();
+            let $form = $('<div/>', {
+                class: 'form-delivery'
+            });
+            $form.append($('<label for="sity">Город:</label>'));
+            $form.append($('<input type="text" name="sity" value="Смоленск" readonly>'));
+            $form.append($('<label for="str" >Улица, Пр-т, Проезд и т.д:</label>'));
+            $form.append($('<input type="text" name="str" value="" placeholder="пр.Ленина" autofocus required>'));
+            $form.append($('<label for="house" >Дом:</label>'));
+            $form.append($('<input type="text" name="house" value="">'));
+            $form.append($('<label for="corps" >Корпус:</label>'));
+            $form.append($('<input type="text" name="corps" value="">'));
+            $form.append($('<label for="flat" >Квартира:</label>'));
+            $form.append($('<input type="text" name="flat" value="">'));
+            $('#delivery').after($form);
+            break;
+        case 3:
+            $('.form-delivery').remove();
+            break;
+    }
 }
