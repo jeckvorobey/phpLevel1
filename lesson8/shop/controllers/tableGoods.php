@@ -10,6 +10,8 @@ if (isset($_SESSION['login']) && isset($_SESSION['pass'])) {
 }
 
 $goods = table_goods($connection, $userId);
+$totalCount = array_sum(array_column($goods, 'count'));
+$totalAmount = array_sum(array_column($goods, 'amount'));
 // print_r($goods);
 
 echo '<table class="col-12 table-goods">';

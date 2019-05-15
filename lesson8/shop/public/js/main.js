@@ -1,6 +1,6 @@
 $(document).ready(() => {
-    $('#phoneReg').mask('+7(999)999-99-99');
-
+    $('.phoneReg').mask('+7(999)999-99-99');
+    renderFormDelivery(0);
 
     let cart = new Cart('#cart');
 
@@ -12,8 +12,25 @@ $(document).ready(() => {
     //обработчик выбора способо доставки
     $('#delivery').change(e => {
         e.preventDefault();
-        console.log(e.target.value);
+        // console.log(e.target.value);
         renderFormDelivery(e.target.value);
+        if (e.target.value !== 0) {
+            $.ajax({
+                type: 'GET',
+                url: '../controllers/order.php',
+                data: {
+                    idDelivery: e.target.value
+                },
+                dataType: 'json',
+                error: (text, error) => {
+                    alert(`Ошибка: ${text} | ${error}`);
+                },
+                success: data => {
+                    totalPrice(data.price);
+
+                }
+            });
+        }
     });
 
     //модальное окно
@@ -89,8 +106,13 @@ byOrder = () => {
 
 renderFormDelivery = id => {
     switch (+(id)) {
+        case 0:
+            $('.form-delivery').remove();
+            $('.order').prop('disabled', true);
+            break;
         case 1:
             $('.form-delivery').remove();
+            $('.order').prop('disabled', false);
             break;
         case 2:
             $('.form-delivery').remove();
@@ -98,19 +120,54 @@ renderFormDelivery = id => {
                 class: 'form-delivery'
             });
             $form.append($('<label for="sity">Город:</label>'));
-            $form.append($('<input type="text" name="sity" value="Смоленск" readonly>'));
+            $form.append($('<input class="form-control" type="text" name="sity" value="Смоленск" readonly>'));
             $form.append($('<label for="str" >Улица, Пр-т, Проезд и т.д:</label>'));
-            $form.append($('<input type="text" name="str" value="" placeholder="пр.Ленина" autofocus required>'));
+            $form.append($('<input class="form-control" type="text" name="str" value="" placeholder="пр.Ленина" autofocus required>'));
             $form.append($('<label for="house" >Дом:</label>'));
-            $form.append($('<input type="text" name="house" value="">'));
+            $form.append($('<input class="form-control" type="text" name="house" value="">'));
             $form.append($('<label for="corps" >Корпус:</label>'));
-            $form.append($('<input type="text" name="corps" value="">'));
+            $form.append($('<input class="form-control" type="text" name="corps" value="">'));
             $form.append($('<label for="flat" >Квартира:</label>'));
-            $form.append($('<input type="text" name="flat" value="">'));
+            $form.append($('<input class="form-control" type="text" name="flat" value="">'));
+            $form.append($('<label for="phone">Телефон для уточнения деталей</label>'));
+            $form.append($('<input class="form-control" class="phoneReg" type="phone" name="phone" placeholder="Укажите Ваш Номер Телефона" >'));
             $('#delivery').after($form);
+            $('.order').prop('disabled', false);
             break;
         case 3:
             $('.form-delivery').remove();
+            let $formP = $('<div/>', {
+                class: 'form-delivery'
+            });
+            $formP.append($('<label for="index">Почтовый индекс:</label>'));
+            $formP.append($('<input class="form-control" type="text" name="index" value="" autofocus required>'));
+            $formP.append($('<label for="region">Область:</label>'));
+            $formP.append($('<input class="form-control" type="text" name="region" value="" required>'));
+            $formP.append($('<label for="regionArea">Район:</label>'));
+            $formP.append($('<input class="form-control" type="text" name="regionArea" value="">'));
+            $formP.append($('<label for="sity">Город:</label>'));
+            $formP.append($('<input class="form-control" type="text" name="sity" value="">'));
+            $formP.append($('<label for="str" >Улица, Пр-т, Проезд и т.д:</label>'));
+            $formP.append($('<input class="form-control" type="text" name="str" value="" placeholder="" required>'));
+            $formP.append($('<label for="house" >Дом:</label>'));
+            $formP.append($('<input class="form-control" type="text" name="house" value="">'));
+            $formP.append($('<label for="corps" >Корпус:</label>'));
+            $formP.append($('<input class="form-control" type="text" name="corps" value="">'));
+            $formP.append($('<label for="flat" >Квартира:</label>'));
+            $formP.append($('<input class="form-control" type="text" name="flat" value="">'));
+            $formP.append($('<label for="phone">Телефон для уточнения деталей</label>'));
+            $formP.append($('<input class="form-control" class="phoneReg" type="phone" name="phone" placeholder="Укажите Ваш Номер Телефона" >'));
+            $('#delivery').after($formP);
+            $('.order').prop('disabled', false);
             break;
+
+    }
+
+    totalPrice = deliveryPrice => {
+        // console.log(deliveryPrice);
+        let $totalSum = +($('.sumGoods').data('sum')) + +(deliveryPrice);
+
+        $('.delivery').text(`Доставка: ${deliveryPrice} руб.`);
+        $('.total').text(`Итого к оплате: ${$totalSum}руб.`);
     }
 }

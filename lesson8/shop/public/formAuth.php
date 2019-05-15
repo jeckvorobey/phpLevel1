@@ -76,7 +76,7 @@ include '../templates/head.php';
                          ?>
                          <div class="col-12">
                              <label for="phone">Телефон</label>
-                             <input type="phone" id="phoneReg" class="form-control" name="phone"
+                             <input type="phone" class="phoneReg form-control" name="phone"
                                  placeholder="Укажите Ваш Номер Телефона">
                          </div>
                      </div>
