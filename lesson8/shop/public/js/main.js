@@ -119,12 +119,12 @@ renderFormDelivery = id => {
             let $form = $('<div/>', {
                 class: 'form-delivery'
             });
-            $form.append($('<label for="sity">Город:</label>'));
-            $form.append($('<input class="form-control" type="text" name="sity" value="Смоленск" readonly>'));
+            $form.append($('<label for="city">Город:</label>'));
+            $form.append($('<input class="form-control" type="text" name="city" value="Смоленск" readonly>'));
             $form.append($('<label for="str" >Улица, Пр-т, Проезд и т.д:</label>'));
             $form.append($('<input class="form-control" type="text" name="str" value="" placeholder="пр.Ленина" autofocus required>'));
             $form.append($('<label for="house" >Дом:</label>'));
-            $form.append($('<input class="form-control" type="text" name="house" value="">'));
+            $form.append($('<input class="form-control" type="text" name="house" value="" required>'));
             $form.append($('<label for="corps" >Корпус:</label>'));
             $form.append($('<input class="form-control" type="text" name="corps" value="">'));
             $form.append($('<label for="flat" >Квартира:</label>'));
@@ -144,13 +144,13 @@ renderFormDelivery = id => {
             $formP.append($('<label for="region">Область:</label>'));
             $formP.append($('<input class="form-control" type="text" name="region" value="" required>'));
             $formP.append($('<label for="regionArea">Район:</label>'));
-            $formP.append($('<input class="form-control" type="text" name="regionArea" value="">'));
-            $formP.append($('<label for="sity">Город:</label>'));
-            $formP.append($('<input class="form-control" type="text" name="sity" value="">'));
+            $formP.append($('<input class="form-control" type="text" name="regionArea" value="" required>'));
+            $formP.append($('<label for="city">Город:</label>'));
+            $formP.append($('<input class="form-control" type="text" name="city" value="" required>'));
             $formP.append($('<label for="str" >Улица, Пр-т, Проезд и т.д:</label>'));
             $formP.append($('<input class="form-control" type="text" name="str" value="" placeholder="" required>'));
             $formP.append($('<label for="house" >Дом:</label>'));
-            $formP.append($('<input class="form-control" type="text" name="house" value="">'));
+            $formP.append($('<input class="form-control" type="text" name="house" value="" required>'));
             $formP.append($('<label for="corps" >Корпус:</label>'));
             $formP.append($('<input class="form-control" type="text" name="corps" value="">'));
             $formP.append($('<label for="flat" >Квартира:</label>'));

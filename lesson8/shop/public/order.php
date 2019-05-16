@@ -23,7 +23,8 @@ session_start();
                         <option value="3" data-price="500">Почтой России 500 руб.</option>
                     </select>
 
-                    <button type="submit" class="order btn btn-success mt-2">Подтвердить</button>
+                    <button type="submit" class="order btn btn-success mt-2" name="orderUserId"
+                        value="<?=$userId; ?>">Подтвердить</button>
                 </form>
                 <div class="col-5">
                     <p>Итого товаров: <?=$totalCount; ?> шт.</p>
