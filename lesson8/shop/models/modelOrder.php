@@ -52,5 +52,16 @@ function user_order($connection, $idUser)
 
 function add_good_order($connection, $idOrder, $idGood, $goodCount)
 {
-    
+    $idOrder = (int) $idOrder;
+    $idGood = (int) $idGood;
+    $goodCount = (int) $goodCount;
+    $sql = 'INSERT INTO `order_goods`(`id_orders`, `id_good`, `count`) VALUES (%d, %d, %d)';
+    $query = sprintf($sql, $idOrder, $idGood, $goodCount);
+    $result = mysqli_query($connection, $query);
+
+    if (!$result) {
+        die(mysqli_error($connection));
+    }
+
+    return true;
 }
