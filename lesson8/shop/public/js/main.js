@@ -112,6 +112,12 @@ renderFormDelivery = id => {
             break;
         case 1:
             $('.form-delivery').remove();
+            let $formS = $('<div/>', {
+                class: 'form-delivery'
+            });
+            $formS.append($('<label for="phone">Телефон для уточнения деталей</label>'));
+            $formS.append($('<input class="form-control" class="phoneReg" type="phone" name="phone" placeholder="Укажите Ваш Номер Телефона" required>'));
+            $('#delivery').after($formS);
             $('.order').prop('disabled', false);
             break;
         case 2:
@@ -130,7 +136,7 @@ renderFormDelivery = id => {
             $form.append($('<label for="flat" >Квартира:</label>'));
             $form.append($('<input class="form-control" type="text" name="flat" value="">'));
             $form.append($('<label for="phone">Телефон для уточнения деталей</label>'));
-            $form.append($('<input class="form-control" class="phoneReg" type="phone" name="phone" placeholder="Укажите Ваш Номер Телефона" >'));
+            $form.append($('<input class="form-control" class="phoneReg" type="phone" name="phone" placeholder="Укажите Ваш Номер Телефона" required>'));
             $('#delivery').after($form);
             $('.order').prop('disabled', false);
             break;
@@ -156,7 +162,7 @@ renderFormDelivery = id => {
             $formP.append($('<label for="flat" >Квартира:</label>'));
             $formP.append($('<input class="form-control" type="text" name="flat" value="">'));
             $formP.append($('<label for="phone">Телефон для уточнения деталей</label>'));
-            $formP.append($('<input class="form-control" class="phoneReg" type="phone" name="phone" placeholder="Укажите Ваш Номер Телефона" >'));
+            $formP.append($('<input class="form-control" class="phoneReg" type="phone" name="phone" placeholder="Укажите Ваш Номер Телефона" required>'));
             $('#delivery').after($formP);
             $('.order').prop('disabled', false);
             break;

@@ -11,11 +11,39 @@ if (isset($_GET['idDelivery'])) {
 }
 
 if (isset($_POST['orderUserId'])) {
-    // print_r($_POST);
     switch ($_POST['delivery']) {
     case 1:
-        // print_r($_POST);
-        $addOrder = add_Order($connection, )
+         $idUser = (int) $_POST['orderUserId'];
+         $idDelivery = (int) $_POST['delivery'];
+         $phone = (int) $_POST['phone'];
+         $idStatus = 1;
+         $index = '';
+         $region = '';
+         $regionArea = '';
+         $city = '';
+         $str = '';
+         $house = '';
+         $corps = '';
+         $flat = '';
+         $flat = '';
+
+      // $data = add_order($connection, $idUser, $idStatus, $idDelivery, $index, $region, $regionArea, $city, $str, $house, $corps, $flat, $phone);
+        $goods = table_goods($connection, $idUser);
+        //print_r($goods);
+        $userOrder = user_order($connection, $idUser);
+        foreach ($goods as $key => $val) {
+            $idGood = $goods[$key]['id'];
+            $goodCount = $goods[$key]['count'];
+            $idOrder = $userOrder['id'];
+            add_good_order($connection, $idOrder, $idGood, $goodCount);
+        }
+
+        //print_r($userOrder);
+      // if (!$data) {
+      //     echo 'ошибка в оформлении заказа!';
+      // } else {
+      //     echo 'Ваш заказ поступил в обработку!';
+      // }
         break;
     case 2:
         echo 'курьером';
