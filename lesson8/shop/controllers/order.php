@@ -17,7 +17,7 @@ if (isset($_POST['orderUserId'])) {
          $idUser = (int) $_POST['orderUserId'];
          $idDelivery = (int) $_POST['delivery'];
          $phone = (int) $_POST['phone'];
-         $idStatus = 1;
+         $idStatus = 6;
          $index = '';
          $region = '';
          $regionArea = '';
@@ -45,6 +45,7 @@ if (isset($_POST['orderUserId'])) {
         //            if ($goodOrder) {
         //                $delBasket = del_row_basket($connection, $idGood, $idUser);
         //        }
+            //$upStatusOrder = up_status_order($connection, $userOrder['id'], $newStatus = 1);
         //}
       // }
         break;

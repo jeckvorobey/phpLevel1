@@ -65,3 +65,17 @@ function add_good_order($connection, $idOrder, $idGood, $goodCount)
 
     return true;
 }
+
+function up_status_order($connection, $userOrder, $newStatus)
+{
+    $userOrder = (int) $userOrder;
+    $newStatus = (int) $newStatus;
+    $sql = "UPDATE `orders` SET `id_status`=$newStatus, WHERE `id`=$userOrder and `id_status`=6";
+    $result = mysqli_query($connection, $sql);
+
+    if (!$result) {
+        die(mysqli_error($connection));
+    }
+
+    return mysqli_affected_rows($connection);
+}
