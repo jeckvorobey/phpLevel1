@@ -22,9 +22,8 @@ function add_order($connection, $idUser, $idStatus, $idDelivery, $index, $region
     $idUser = (int) $idUser;
     $idStatus = (int) $idStatus;
     $idDelivery = (int) $idDelivery;
-    $phone = (int) $phone;
-    $sql = "INSERT INTO `orders`(`id_user`, `id_status`, `id_delivery`, `index`, `region`, `regionArea`, `city`, `str`, `house`, `corps`, `flat`, `phone`) VALUES (%d, %d, %d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s',%d)";
-    $query = sprintf($sql, $idUser, $idStatus, $idDelivery, mysqli_escape_string($connection, $index), mysqli_escape_string($connection, $region), mysqli_escape_string($connection, $regionArea), mysqli_escape_string($connection, $city), mysqli_escape_string($connection, $str), mysqli_escape_string($connection, $house), mysqli_escape_string($connection, $corps), mysqli_escape_string($connection, $flat), $phone);
+    $sql = "INSERT INTO `orders`(`id_user`, `id_status`, `id_delivery`, `index`, `region`, `regionArea`, `city`, `str`, `house`, `corps`, `flat`, `phone`) VALUES (%d, %d, %d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s','%s')";
+    $query = sprintf($sql, $idUser, $idStatus, $idDelivery, mysqli_escape_string($connection, $index), mysqli_escape_string($connection, $region), mysqli_escape_string($connection, $regionArea), mysqli_escape_string($connection, $city), mysqli_escape_string($connection, $str), mysqli_escape_string($connection, $house), mysqli_escape_string($connection, $corps), mysqli_escape_string($connection, $flat), mysqli_escape_string($connection, $phone));
     $result = mysqli_query($connection, $query);
 
     if (!$result) {
@@ -70,7 +69,7 @@ function up_status_order($connection, $userOrder, $newStatus)
 {
     $userOrder = (int) $userOrder;
     $newStatus = (int) $newStatus;
-    $sql = "UPDATE `orders` SET `id_status`=$newStatus, WHERE `id`=$userOrder and `id_status`=1";
+    $sql = "UPDATE `orders` SET `id_status`=$newStatus WHERE id=$userOrder AND id_status=1";
     $result = mysqli_query($connection, $sql);
 
     if (!$result) {

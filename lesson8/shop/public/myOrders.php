@@ -27,19 +27,7 @@ include '../templates/head.php';
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($myOrders as $key => $val) {
-    echo '<tr>';
-    echo '<td>'.$myOrders[$key]['id'].'</td>';
-    echo '<td>'.$myOrders[$key]['date'].'</td>';
-    echo '<td>500 rub</td>';
-    echo '<td>'.$myOrders[$key]['name'].'</td>';
-    echo '<td>'.$myOrders[$key]['phone'].'</td>';
-    echo '<td>'.$myOrders[$key]['nameStatus'].'</td>';
-    echo '<td>Кнопка товаров</td>';
-    echo '<td>Кнопка отмены</td>';
-    echo '</tr>';
-}?>
-                        <!--  <tr>
+                        <tr>
                             <td>1</td>
                             <td>29-05-2019</td>
                             <td>500 руб.</td>
@@ -48,10 +36,10 @@ include '../templates/head.php';
                             <td>Новый</td>
                             <td>Кнопка товаров</td>
                             <td>Кнопка отмены</td>
-                        </tr>-->
+                        </tr>
                     </tbody>
                 </table>
-                <?php //print_r($myOrders);?>
+                <?php print_r($orderGoods); ?>
             </div>
 
             <?php include '../templates/footer.php'; ?>
