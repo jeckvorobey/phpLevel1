@@ -15,6 +15,9 @@ function my_orders($connection, $idUser)
     while ($row = mysqli_fetch_assoc($result)) {
         $orders[] = $row;
     }
+    foreach ($orders as $key => $val) {
+        $orders[$key]['goods'] = order_goods($connection, $orders[$key]['id']);
+    }
 
     return $orders;
 }
