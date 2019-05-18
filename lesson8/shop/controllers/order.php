@@ -17,7 +17,7 @@ if (isset($_POST['orderUserId'])) {
          $idUser = (int) $_POST['orderUserId'];
          $idDelivery = (int) $_POST['delivery'];
          $phone = (int) $_POST['phone'];
-         $idStatus = 6;
+         $idStatus = 1;
          $index = '';
          $region = '';
          $regionArea = '';
@@ -28,26 +28,26 @@ if (isset($_POST['orderUserId'])) {
          $flat = '';
          $flat = '';
 
-      // $data = add_order($connection, $idUser, $idStatus, $idDelivery, $index, $region, $regionArea, $city, $str, $house, $corps, $flat, $phone);
+         //$data = add_order($connection, $idUser, $idStatus, $idDelivery, $index, $region, $regionArea, $city, $str, $house, $corps, $flat, $phone);
 
-        //print_r($userOrder);
-      // if (!$data) {
-      //     echo 'ошибка в оформлении заказа!';
-      // } else {
-      //    $goods = table_goods($connection, $idUser);
-        //    $userOrder = user_order($connection, $idUser);
-        //    foreach ($goods as $key => $val) {
-        //        $idGood = $goods[$key]['id'];
-        //        $idUser = $userOrder['id_user'];
-        //        $goodCount = $goods[$key]['count'];
-        //        $idOrder = $userOrder['id'];
-        //        $goodOrder = add_good_order($connection, $idOrder, $idGood, $goodCount);
-        //            if ($goodOrder) {
-        //                $delBasket = del_row_basket($connection, $idGood, $idUser);
-        //        }
-            //$upStatusOrder = up_status_order($connection, $userOrder['id'], $newStatus = 1);
-        //}
-      // }
+    /*   if (!$data) {
+           echo 'ошибка в оформлении заказа!';
+       } else {
+           $goods = table_goods($connection, $idUser);
+           $userOrder = user_order($connection, $idUser);
+           foreach ($goods as $key => $val) {
+               $idGood = $goods[$key]['id'];
+               $idUser = $userOrder['id_user'];
+               $goodCount = $goods[$key]['count'];
+               $idOrder = $userOrder['id'];
+               $goodOrder = add_good_order($connection, $idOrder, $idGood, $goodCount);
+               if ($goodOrder) {
+                   $delBasket = del_row_basket($connection, $idGood, $idUser);
+               }
+           }
+           $upStatusOrder = up_status_order($connection, $userOrder['id'], $newStatus = 2);
+           header('Location: ../public/personalArea.php?successfulOrder');
+       }*/
         break;
     case 2:
         echo 'курьером';

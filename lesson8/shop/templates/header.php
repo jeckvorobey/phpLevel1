@@ -9,6 +9,10 @@
          <?php
             if (isset($_SESSION['login']) && isset($_SESSION['pass'])) {
                 echo '<li><a href="../public/personalArea.php">Личный кабинет</a></li>';
+                echo '<li><a href="../public/myOrders.php">Мои заказы</a></li>';
+                /*  if ($_SESSION['role'] != 1) {
+                      echo '<li><a href="../public/myOrders.php">Мои заказы</a></li>';
+                  }*/
                 if ($_SESSION['role'] == 1) {
                     echo '<li><a href="../admin/index.php">Админка</a></li>';
                 }

@@ -70,7 +70,7 @@ function up_status_order($connection, $userOrder, $newStatus)
 {
     $userOrder = (int) $userOrder;
     $newStatus = (int) $newStatus;
-    $sql = "UPDATE `orders` SET `id_status`=$newStatus, WHERE `id`=$userOrder and `id_status`=6";
+    $sql = "UPDATE `orders` SET `id_status`=$newStatus, WHERE `id`=$userOrder and `id_status`=1";
     $result = mysqli_query($connection, $sql);
 
     if (!$result) {
