@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Май 08 2019 г., 00:17
+-- Время создания: Май 20 2019 г., 00:11
 -- Версия сервера: 5.7.26-0ubuntu0.18.04.1
 -- Версия PHP: 7.2.17-0ubuntu0.18.04.1
 
@@ -39,10 +39,28 @@ CREATE TABLE `basket` (
 --
 
 INSERT INTO `basket` (`id`, `id_user`, `id_good`, `count`, `date`) VALUES
-(19, '2', 1, 1, '2019-05-07 18:03:28'),
-(20, '2', 2, 1, '2019-05-07 18:03:29'),
-(24, '1', 4, 2, '2019-05-08 00:13:11'),
-(26, '1', 3, 1, '2019-05-08 00:14:40');
+(2, '1', 4, 1, '2019-05-19 18:45:04');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `delivery`
+--
+
+CREATE TABLE `delivery` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `delivery`
+--
+
+INSERT INTO `delivery` (`id`, `name`, `price`) VALUES
+(1, 'Самовывоз', 0),
+(2, 'Курьером по городу', 300),
+(3, 'Почтой россии', 500);
 
 -- --------------------------------------------------------
 
@@ -74,6 +92,97 @@ INSERT INTO `goods` (`id`, `author`, `title`, `imgName`, `description`, `annotat
 (3, 'Мелинда Солсбери', 'Дочь Пожирательницы Грехов', 'DochPosgiratelniciGrehov.jpg', 'Серия-бестселлер в 13 странах мира! Дебютное фэнтези, которое стало сенсационно успешным!', 'Серия-бестселлер в 13 странах мира! Дебютное фэнтези, которое стало сенсационно успешным! Твилла — избранная. Ей предстоит стать женой принца и управлять королевством. Но подарки Богов имеют свою цену. В жилах девушки струится смертельно опасный яд. Любой, кто представляет угрозу трону, падет от одного ее прикосновения. Неудивительно, что Твиллу боятся и ненавидят. И лишь ее новый стражник Лейф увидел в ней не палача, а испуганную девушку, которая мечтает изменить свою судьбу. Но при дворе Лормира, где в чести коварство и ложь, не многим дано это право.', 'Freedom', 'Фэнтези', 2018, '978-5-04-090527', 200),
 (4, 'Мет Фицджеральд', 'Как сильно ты этого хочешь?', 'KakSilnoTiEtogoHochesh.png', 'Великолепная книга по спортивной психологии, от которой вы не сможете оторваться.', 'Ум — это и есть атлет. Брюс Куртене, «Сила личности» Великолепная книга по спортивной психологии, от которой вы не сможете оторваться. Построена на историях элитных спортсменов, их ошибках и уроках. Будет интересна и полезна всем — и спортсменам-любителям, и тем, кто не занимается спортом на результат. Величайшие достижения в спорте случаются благодаря мозгу, а не телу.  С этой книгой вы окунетесь в перипетии дюжины великих соревнований, чтобы узнать ответ на самый важный вопрос в видах спорта на выносливость: «Как сильно ты этого хочешь?»  В своей книге Мэт Фицджеральд — один из самых ярких авторов современности, пишущих на тему спорта, — сумел создать впечатляющую подборку примеров из реальной жизни, демонстрирующих, как восприятие усилий и прочие психологические факторы влияют на нашу выносливость.', 'Манн, Иванов и Фербер', 'спорт-драйв', 2017, '978-5-00117-458-5', 200),
 (5, 'Джек Лондон', 'Сердца трех', 'serdcatreh.jpg', 'Роман \"Сердца трёх\" (1916) был написан Джеком Лондоном незадолго до его смерти и стал юбилейной работой автора - его пятидесятой книгой.', 'Роман \"Сердца трёх\" (1916) был написан Джеком Лондоном. Джек Лондон (1876-1916) - известный американский писатель и общественный деятель. Роман \"Сердца трёx\" (1916) был написан Джеком Лондоном незадолго до его смерти и стал юбилейной работой автора - его пятидесятой книгой. В предисловии к роману Автор написал, что взялся за работу по причине отсутствия новых сюжетов для кинематографа. И действительно, роман, как и многие другие произведения писателя, был неоднократно экранизирован. Главный герой Френсис Морган — молодой человек, потомок известного пирата Генри Моргана — отправляется на поиски сокровищ своего знаменитого предка. В пути он встречается со своим кузеном Генри Морганом, который тоже ищет эти сокровища. Героев ждут опасные приключения, неизведанные земли, любовь прекрасной Леонсии, в которую влюблены оба брата… Для среднего школьного возраста', 'АСТ', 'Школьное чтение', 2016, '978-5-17-108274-1', 100);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_status` int(11) NOT NULL,
+  `id_delivery` int(11) NOT NULL,
+  `index` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `region` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `regionArea` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `str` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `house` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `corps` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `flat` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`id`, `id_user`, `id_status`, `id_delivery`, `index`, `region`, `regionArea`, `city`, `str`, `house`, `corps`, `flat`, `phone`, `date`) VALUES
+(1, 1, 2, 1, '', '', '', '', '', '', '', '', '24324214', '2019-05-17 20:07:01'),
+(2, 1, 4, 2, '', '', '', 'Смоленск', 'пр.ленина', '1', '5', '25', '556252155', '2019-05-18 18:02:32'),
+(3, 1, 2, 2, '', '', '', 'Смоленск', 'пр.ленина', '1', '5', '25', '89995558877', '2019-05-18 18:16:02'),
+(4, 1, 2, 3, '589657', 'Тверская', 'Калининский', 'Торжок', 'ул.Советская', '5', '', '6', '87775556633', '2019-05-18 18:23:54'),
+(5, 2, 2, 2, '', '', '', 'Смоленск', 'ул.б.советская', '6', '5', '58', '85553332288', '2019-05-18 18:26:55');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `order_goods`
+--
+
+CREATE TABLE `order_goods` (
+  `id` int(11) NOT NULL,
+  `id_orders` int(11) NOT NULL,
+  `id_good` int(11) NOT NULL,
+  `count` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `order_goods`
+--
+
+INSERT INTO `order_goods` (`id`, `id_orders`, `id_good`, `count`) VALUES
+(1, 1, 4, 2),
+(2, 1, 3, 2),
+(3, 1, 2, 1),
+(4, 1, 1, 1),
+(5, 2, 5, 2),
+(6, 2, 2, 2),
+(7, 2, 1, 4),
+(8, 2, 3, 1),
+(9, 2, 4, 3),
+(10, 3, 5, 1),
+(11, 4, 4, 1),
+(12, 4, 5, 1),
+(13, 5, 1, 1),
+(14, 5, 2, 1),
+(15, 5, 3, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `stat`
+--
+
+CREATE TABLE `stat` (
+  `id` int(11) NOT NULL,
+  `nameStatus` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `stat`
+--
+
+INSERT INTO `stat` (`id`, `nameStatus`) VALUES
+(1, 'Поступил'),
+(2, 'Новый'),
+(3, 'В обработке'),
+(4, 'Отправлен'),
+(5, 'Доставлен'),
+(6, 'Отменен');
 
 -- --------------------------------------------------------
 
@@ -116,9 +225,33 @@ ALTER TABLE `basket`
   ADD UNIQUE KEY `id` (`id`);
 
 --
+-- Индексы таблицы `delivery`
+--
+ALTER TABLE `delivery`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `goods`
 --
 ALTER TABLE `goods`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `order_goods`
+--
+ALTER TABLE `order_goods`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `stat`
+--
+ALTER TABLE `stat`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -136,12 +269,32 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `basket`
 --
 ALTER TABLE `basket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT для таблицы `delivery`
+--
+ALTER TABLE `delivery`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT для таблицы `goods`
 --
 ALTER TABLE `goods`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT для таблицы `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT для таблицы `order_goods`
+--
+ALTER TABLE `order_goods`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT для таблицы `stat`
+--
+ALTER TABLE `stat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
