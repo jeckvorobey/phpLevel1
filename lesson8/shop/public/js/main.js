@@ -1,62 +1,22 @@
+renderGoodsOrder = id => {
+    console.log('hello');
+
+    //$('#order-modal').modal('show');
+}
+
 $(document).ready(() => {
     $('.phoneReg').mask('+7(999)999-99-99');
     renderFormDelivery(0);
 
     let cart = new Cart('#cart');
 
-    $('.cancel').click(e => {
-        //e.preventDefault();
-        cl = () => {
-            let cl = true;
-            return cl;
-        }
-        //console.log(e.target);
-
-    });
-
-    $('.table-row').click(e => {
+    $('.details').click(e => {
         // e.preventDefault();
-        if (cl() === true) {
-            let row = e.currentTarget;
-            console.log($('.table-row'));
-        }
-    });
-
-    $('.add-to-cart').click(e => {
-        addCart(e.target.value);
-        location.reload();
-    });
-
-    //обработчик выбора способо доставки
-    $('#delivery').change(e => {
-        e.preventDefault();
-        // console.log(e.target.value);
-        renderFormDelivery(e.target.value);
-        if (e.target.value !== 0) {
-            $.ajax({
-                type: 'GET',
-                url: '../controllers/order.php',
-                data: {
-                    idDelivery: e.target.value
-                },
-                dataType: 'json',
-                error: (text, error) => {
-                    alert(`Ошибка: ${text} | ${error}`);
-                },
-                success: data => {
-                    totalPrice(data.price);
-
-                }
-            });
-        }
-    });
-
-    //модальное окно
-    $('a#go').click(function (event) { // лoвим клик пo ссылки с id="go"
-        event.preventDefault(); // выключaем стaндaртную рoль элементa
-        $('#overlay').fadeIn(400, // снaчaлa плaвнo пoкaзывaем темную пoдлoжку
+        // renderGoodsOrder(e.target.value);
+        e.preventDefault(); // выключaем стaндaртную рoль элементa
+        $('#overlay-order').fadeIn(400, // снaчaлa плaвнo пoкaзывaем темную пoдлoжку
             function () { // пoсле выпoлнения предъидущей aнимaции
-                $('#modal_form')
+                $('#modal-order')
                     .css('display', 'block') // убирaем у мoдaльнoгo oкнa display: none;
                     .animate({
                         opacity: 1,
@@ -64,8 +24,8 @@ $(document).ready(() => {
             });
     });
     /* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
-    $('#modal_close, #overlay').click(function () { // лoвим клик пo крестику или пoдлoжке
-        $('#modal_form')
+    $('#close-order, #overlay-order').click(function () { // лoвим клик пo крестику или пoдлoжке
+        $('#modal-order')
             .animate({
                     opacity: 0,
                 }, 200, // плaвнo меняем прoзрaчнoсть нa 0 и oднoвременнo двигaем oкнo вверх
@@ -75,6 +35,69 @@ $(document).ready(() => {
                 }
             );
     });
+})
+
+$('.cancel').click(e => {
+    e.preventDefault();
+    //console.log(e.target.value);
+    cancelOrder(e.target.value)
+
+});
+
+
+$('.add-to-cart').click(e => {
+    addCart(e.target.value);
+    location.reload();
+});
+
+//обработчик выбора способо доставки
+$('#delivery').change(e => {
+    e.preventDefault();
+    // console.log(e.target.value);
+    renderFormDelivery(e.target.value);
+    if (e.target.value !== 0) {
+        $.ajax({
+            type: 'GET',
+            url: '../controllers/order.php',
+            data: {
+                idDelivery: e.target.value
+            },
+            dataType: 'json',
+            error: (text, error) => {
+                alert(`Ошибка: ${text} | ${error}`);
+            },
+            success: data => {
+                totalPrice(data.price);
+
+            }
+        });
+    }
+});
+
+
+//модальное окно
+$('a#go').click(function (event) { // лoвим клик пo ссылки с id="go"
+    event.preventDefault(); // выключaем стaндaртную рoль элементa
+    $('#overlay').fadeIn(400, // снaчaлa плaвнo пoкaзывaем темную пoдлoжку
+        function () { // пoсле выпoлнения предъидущей aнимaции
+            $('#modal_form')
+                .css('display', 'block') // убирaем у мoдaльнoгo oкнa display: none;
+                .animate({
+                    opacity: 1,
+                }, 200); // плaвнo прибaвляем прoзрaчнoсть oднoвременнo сo съезжaнием вниз
+        });
+});
+/* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
+$('#modal_close, #overlay').click(function () { // лoвим клик пo крестику или пoдлoжке
+    $('#modal_form')
+        .animate({
+                opacity: 0,
+            }, 200, // плaвнo меняем прoзрaчнoсть нa 0 и oднoвременнo двигaем oкнo вверх
+            function () { // пoсле aнимaции
+                $(this).css('display', 'none'); // делaем ему display: none;
+                $('#overlay').fadeOut(400); // скрывaем пoдлoжку
+            }
+        );
 });
 
 //добавляем товар в корзину
@@ -90,7 +113,7 @@ addCart = (id) => {
             alert(`Ошибка: ${text} | ${error}`);
         },
         success: data => {
-            console.log(this);
+            // console.log(this);
 
         }
     });
@@ -115,6 +138,8 @@ unit = (id, action) => {
     });
 }
 
+
+
 auth = () => {
     location = '../public/formAuth.php';
 }
@@ -131,7 +156,7 @@ cancelOrder = id => {
         },
         success: data => {
             if (+(data) === 1) {
-
+                location.reload();
             }
         }
     });

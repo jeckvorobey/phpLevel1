@@ -37,9 +37,9 @@ include '../templates/head.php';
     echo '<td>'.$myOrders[$key]['index'].' '.$myOrders[$key]['region'].' '.$myOrders[$key]['regionArea'].' '.$myOrders[$key]['city'].' '.$myOrders[$key]['str'].' '.$myOrders[$key]['house'].' '.$myOrders[$key]['corps'].' '.$myOrders[$key]['flat'].'</td>';
     echo '<td>'.$myOrders[$key]['phone'].'</td>';
     echo '<td class="status-name">'.$myOrders[$key]['nameStatus'].'</td>';
-    echo '<td><button type="button" class="details btn btn-outline-primary">Детали</button></td>';
+    echo '<td><button type="button" class="details btn btn-outline-primary" value="'.$myOrders[$key]['id'].'">Детали</button></td>';
     if ($myOrders[$key]['nameStatus'] == 'Новый' || $myOrders[$key]['nameStatus'] == 'В обработке') {
-        echo '<td><button type="button" class="cancel btn btn-outline-danger"  data-idOrder="'.$myOrders[$key]['id'].'">Отменить</button></td>';
+        echo '<td><button type="button" class="cancel btn btn-outline-danger"  value="'.$myOrders[$key]['id'].'">Отменить</button></td>';
     } else {
         echo '<td class="status-name" >Отменить нельзя</td>';
     }
@@ -54,7 +54,12 @@ include '../templates/head.php';
             <?php include '../templates/footer.php'; ?>
         </div>
     </div>
-
+    <div id="modal-order">
+        <!-- Сaмo oкнo -->
+        <span id="close-order">X</span> <!-- Кнoпкa зaкрыть -->
+        <div id="cart-order"></div>
+    </div>
+    <div id="overlay-order"></div><!-- Пoдлoжкa -->
 </body>
 
 </html>
