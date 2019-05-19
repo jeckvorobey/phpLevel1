@@ -9,4 +9,8 @@ include_once '../models/modelMyOrders.php'; if (isset($_SESSION['login']) && iss
 
 $myOrders = my_orders($connection, $idUser);
 
-
+if (isset($_POST['idOrder'])) {
+    $idOrder = $_POST['idOrder'];
+    $data = up_status($connection, $idOrder);
+    echo $data;
+}

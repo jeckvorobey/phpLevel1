@@ -4,6 +4,24 @@ $(document).ready(() => {
 
     let cart = new Cart('#cart');
 
+    $('.cancel').click(e => {
+        //e.preventDefault();
+        cl = () => {
+            let cl = true;
+            return cl;
+        }
+        //console.log(e.target);
+
+    });
+
+    $('.table-row').click(e => {
+        // e.preventDefault();
+        if (cl() === true) {
+            let row = e.currentTarget;
+            console.log($('.table-row'));
+        }
+    });
+
     $('.add-to-cart').click(e => {
         addCart(e.target.value);
         location.reload();
@@ -72,7 +90,8 @@ addCart = (id) => {
             alert(`Ошибка: ${text} | ${error}`);
         },
         success: data => {
-            // alert('Товар добавлен в корзину')
+            console.log(this);
+
         }
     });
 
@@ -98,6 +117,24 @@ unit = (id, action) => {
 
 auth = () => {
     location = '../public/formAuth.php';
+}
+
+cancelOrder = id => {
+    $.ajax({
+        type: 'POST',
+        url: '../controllers/myOrders.php',
+        data: {
+            idOrder: id,
+        },
+        error: (text, error) => {
+            alert(`Ошибка: ${text} | ${error}`);
+        },
+        success: data => {
+            if (+(data) === 1) {
+
+            }
+        }
+    });
 }
 
 byOrder = () => {
@@ -176,4 +213,6 @@ renderFormDelivery = id => {
         $('.delivery').text(`Доставка: ${deliveryPrice} руб.`);
         $('.total').text(`Итого к оплате: ${$totalSum}руб.`);
     }
+
+
 }

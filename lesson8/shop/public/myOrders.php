@@ -29,28 +29,23 @@ include '../templates/head.php';
                     </thead>
                     <tbody>
                         <?php foreach ($myOrders as $key => $val) {
-    echo '<tr>';
+    echo '<tr class="table-row">';
     echo '<td>'.$myOrders[$key]['id'].'</td>';
     echo '<td>'.$myOrders[$key]['date'].'</td>';
-    echo '<td>500 rub</td>';
+    echo '<td>'.$myOrders[$key]['sumOrder'].' руб.</td>';
     echo '<td>'.$myOrders[$key]['name'].'</td>';
     echo '<td>'.$myOrders[$key]['index'].' '.$myOrders[$key]['region'].' '.$myOrders[$key]['regionArea'].' '.$myOrders[$key]['city'].' '.$myOrders[$key]['str'].' '.$myOrders[$key]['house'].' '.$myOrders[$key]['corps'].' '.$myOrders[$key]['flat'].'</td>';
     echo '<td>'.$myOrders[$key]['phone'].'</td>';
-    echo '<td>'.$myOrders[$key]['nameStatus'].'</td>';
-    echo '<td>Кнопка товаров</td>';
-    echo '<td>Кнопка отмены</td>';
+    echo '<td class="status-name">'.$myOrders[$key]['nameStatus'].'</td>';
+    echo '<td><button type="button" class="details btn btn-outline-primary">Детали</button></td>';
+    if ($myOrders[$key]['nameStatus'] == 'Новый' || $myOrders[$key]['nameStatus'] == 'В обработке') {
+        echo '<td><button type="button" class="cancel btn btn-outline-danger"  data-idOrder="'.$myOrders[$key]['id'].'">Отменить</button></td>';
+    } else {
+        echo '<td class="status-name" >Отменить нельзя</td>';
+    }
     echo '</tr>';
+    //cancelOrder('.$myOrders[$key]['id'].'); onclick="cancelOrder('.$myOrders[$key]['id'].');"
 }?>
-                        <!--<tr>
-                            <td>1</td>
-                            <td>29-05-2019</td>
-                            <td>500 руб.</td>
-                            <td>самовывоз</td>
-                            <td>55184561654</td>
-                            <td>Новый</td>
-                            <td>Кнопка товаров</td>
-                            <td>Кнопка отмены</td>
-                        </tr>-->
                     </tbody>
                 </table>
                 <?php //print_r($myOrders);?>
@@ -59,6 +54,7 @@ include '../templates/head.php';
             <?php include '../templates/footer.php'; ?>
         </div>
     </div>
+
 </body>
 
 </html>
